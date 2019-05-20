@@ -36,7 +36,7 @@ function getDatosCliente1() {
     var edadRL = (document.getElementById('edadRL').value);
     lista.push(edadRL);
     if (edadRL < 18) {
-        alert("El representante legal debe ser mayor de edad");
+        alert("El representante legal debe ser mayor de edad"); 
     return null;
     }
     return lista;
@@ -177,7 +177,7 @@ function AgregarProducto() {
         cell6.innerHTML = '<div id="util_bruta_' + idx + '">';
         cell7.innerHTML = '<div id="ventas_x_prod_' + idx + '">';
     }else{
-        alert("Máximo permitido 10 productos");
+        alert("MÃ¡ximo permitido 10 productos");
     }
 }
 function EliminarProducto() {
