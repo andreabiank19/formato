@@ -21,7 +21,7 @@ function EnviarCalculadora(){
         document.getElementById("btn_grabar").style.display = '';
         document.getElementById("btn_Calculadora").style.display = 'none';
         document.getElementById("boton_finalizar").style.display = '';
-        document.getElementById("boton_inicio").style.display = 'none';
+        document.getElementById("boton_inicio").style.display = 'none'; 
     }*/
 }
 function Validar(lista){
