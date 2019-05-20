@@ -10,7 +10,7 @@ function Inicializar() {
 function EnviarCalculadora(){
     /*var regimen = document.getElementById('regimen').value;
     if(regimen == "Reg General"){
-        alert("Ha indicado que el cliente es Régimen General. \n Debería ir a la calculadora. Gracias");
+        alert("Ha indicado que el cliente es RÃ©gimen General. \n DeberÃ­a ir a la calculadora. Gracias");
         document.getElementById("validado").style.display = 'none';
         document.getElementById("btn_grabar").style.display = 'none';
         document.getElementById("btn_Calculadora").style.display = '';
@@ -25,7 +25,7 @@ function EnviarCalculadora(){
     }*/
 }
 function Validar(lista){
-    //En la condicion debería aparecer que también se excluyan los del campo excluido lista[6]
+    //En la condicion deberÃ­a aparecer que tambiÃ©n se excluyan los del campo excluido lista[6]
     if(lista[0] !=0){
         document.getElementById("validado").style.display = '';
         document.getElementById("btn_grabar").style.display = '';
@@ -34,7 +34,7 @@ function Validar(lista){
 
         document.getElementById("regimen").disabled = false;
         document.getElementById("rvgl").disabled = false;
-        document.getElementById("razonSocial").disabled = false;
+        document.getElementById("razonSocial").disabled = false; 
         document.getElementById("ubicacion").disabled = false;
         document.getElementById("nroPtosVta").disabled = false;
         document.getElementById("nroAlmacenes").disabled = false;
@@ -104,8 +104,8 @@ function Validar(lista){
         }
         document.getElementById("carga").style.display = 'none';
     }else{
-        alert("Los clientes deben ser evaluados por conducto regular. Por favor enviar documentación completa según checklist");
-        //alert("El cliente no se encuentra en la base de campañas");
+        alert("Los clientes deben ser evaluados por conducto regular. Por favor enviar documentaciÃ³n completa segÃºn checklist");
+        //alert("El cliente no se encuentra en la base de campaÃ±as");
         document.getElementById("carga").style.display = 'none';
     }
 }
@@ -315,11 +315,11 @@ function validarNumero(id) {
             siguiente = sinComas.charAt(n + 1);
         }
         if (sinComas.length > 15) {
-            alert("Excedio la cantidad permitida de dígitos");
+            alert("Excedio la cantidad permitida de dÃ­gitos");
             document.getElementById(id).value = "";
         } else {
             if (isNaN(sinComas)) {
-                alert("Ingrese un número válido");
+                alert("Ingrese un nÃºmero vÃ¡lido");
                 document.getElementById(id).value = "";
             } else {
                 var nuevo = Number(sinComas).toLocaleString('en');
@@ -355,7 +355,7 @@ function Agregar_Financimiento_LP() {
     idx += 1;
     var financiamiento = '<div class="col-xs-12" id = "Largo_Plazo_' + idx + '" style="height:547px;">' +
             '<h1>Largo Plazo</h1>' +
-            '<h3>(' + idx + '° Financiamiento)</h3>' +
+            '<h3>(' + idx + 'Â° Financiamiento)</h3>' +
             '<table class="table table-hover">' +
             ' <tr><th colspan="3" class="cabezera">Propuesta de financiamiento Largo Plazo</th></tr>' +
             ' <tr>' +
@@ -365,9 +365,9 @@ function Agregar_Financimiento_LP() {
             '       <option value="0"></option>' +
             '       <option value="Leasing Mobiliario">Leasing Mobiliario</option>' +
             '       <option value="Leasing Inmobiliario">Leasing Inmobiliario</option>' +
-            '       <!--<option value="Préstamo para adquisición de inmueble">Préstamo para adquisición de inmueble</option>' +
-            '       <option value="Préstamo para adquisición de bienes muebles">Préstamo para adquisición de bienes muebles</option>' +
-            '       --><option value="Subrogación de deuda">Subrogación de deuda</option><!--' +
+            '       <!--<option value="PrÃ©stamo para adquisiciÃ³n de inmueble">PrÃ©stamo para adquisiciÃ³n de inmueble</option>' +
+            '       <option value="PrÃ©stamo para adquisiciÃ³n de bienes muebles">PrÃ©stamo para adquisiciÃ³n de bienes muebles</option>' +
+            '       --><option value="SubrogaciÃ³n de deuda">SubrogaciÃ³n de deuda</option><!--' +
             '       <option value="Otro">Otro</option>-->' +
             '     </select>' +
             '   </td>' +
@@ -429,7 +429,7 @@ function Agregar_Financimiento_CP() {
     idx += 1;
     var financiamiento = '<div class="col-xs-12" id = "Corto_Plazo_' + idx + '" style="height:547px;">' +
                          '   <h1>Corto Plazo</h1>' +
-                         '   <h3>(' + idx + '° Financiamiento)</h3>' +
+                         '   <h3>(' + idx + 'Â° Financiamiento)</h3>' +
                          '   <table class="table table-hover">' +
                          '     <tr><th colspan="2" class="cabezera">Propuesta de financiamiento Corto Plazo</th></tr>' +
                          '     <tr>' +
@@ -437,17 +437,17 @@ function Agregar_Financimiento_CP() {
                          '       <td>' +
                          '         <select class="form-control" id="Tipo_Prod_CP_' + idx + '" onchange="Calcular_Propuestas_CP();">' +
                          '           <option value=""></option>' +
-                         '           <option value="Financiamiento de Importación">Financiamiento de Importación</option>' +
-                         '           <option value="Financiamiento de Exportación">Financiamiento de Exportación</option>' +
-                         '           <option value="Préstamo para capital de trabajo">Préstamo para capital de trabajo</option>' +
-                         '           <option value="Línea Préstamo para capital de trabajo">Línea Préstamo para capital de trabajo</option>' +
+                         '           <option value="Financiamiento de ImportaciÃ³n">Financiamiento de ImportaciÃ³n</option>' +
+                         '           <option value="Financiamiento de ExportaciÃ³n">Financiamiento de ExportaciÃ³n</option>' +
+                         '           <option value="PrÃ©stamo para capital de trabajo">PrÃ©stamo para capital de trabajo</option>' +
+                         '           <option value="LÃ­nea PrÃ©stamo para capital de trabajo">LÃ­nea PrÃ©stamo para capital de trabajo</option>' +
                          '           <option value="Tarjeta capital de trabajo">Tarjeta capital de trabajo</option>' +
                          '           <!--<option value="Descuento de letra/factura negociable">Descuento de letra/factura negociable</option>' +
                          '           <option value="Tarjeta Empresarial">Tarjeta empresarial</option>' +
-                         '           <option value="Préstamo para adquisición de bienes muebles pequeños">Préstamo para adquisición de bienes muebles pequeños</option>' +
-                         '           --><option value="Subrogación de deuda">Subrogación de deuda</option><!--' +
-                         '           <option value="Incremento de línea de TKT">Incremento de línea de TKT</option>' +
-                         '           <option value="Incremento de línea de T/C">Incremento de línea de T/C empresarial</option>' +
+                         '           <option value="PrÃ©stamo para adquisiciÃ³n de bienes muebles pequeÃ±os">PrÃ©stamo para adquisiciÃ³n de bienes muebles pequeÃ±os</option>' +
+                         '           --><option value="SubrogaciÃ³n de deuda">SubrogaciÃ³n de deuda</option><!--' +
+                         '           <option value="Incremento de lÃ­nea de TKT">Incremento de lÃ­nea de TKT</option>' +
+                         '           <option value="Incremento de lÃ­nea de T/C">Incremento de lÃ­nea de T/C empresarial</option>' +
                          '           <option value="Otro">Otro</option>-->' +
                          '         </select>' +
                          '       </td>' +
@@ -473,7 +473,7 @@ function Agregar_Financimiento_CP() {
                          '       <td><input min="0" id="Plazo_CP_' + idx + '" class="form-control" onkeyup="validarNumero(id);Calcular_Propuestas_CP();VerificarPlazo('+"'Tipo_Prod_CP_" + idx + "'"+',this.id);"/></td>' +
                          '     </tr>' +
                          '     <tr>' +
-                         '       <td>Gastos finan. 1°cuota</td>' +
+                         '       <td>Gastos finan. 1Â°cuota</td>' +
                          '       <td><div id="GastFin_CP_' + idx + '"></div></td>' +
                          '     </tr>' +
                          '   </table>' +
@@ -498,7 +498,7 @@ function VerificarPlazo(idProducto,idPlazo){
     var plazo = Number(document.getElementById(idPlazo).value);
     var producto = document.getElementById(idProducto).value;
     if(plazo > 24 && producto == "Tarjeta capital de trabajo"){
-        alert("El plazo máximo de TKT es de 24 meses");
+        alert("El plazo mÃ¡ximo de TKT es de 24 meses");
         document.getElementById(idPlazo).value = 24;
     }
 }
@@ -539,7 +539,7 @@ function Calcular_Propuestas_LP() {
 }
 function Calcular_Cuota_Inicial_LP(idx) {
     var Tipo_Prod = document.getElementById("Tipo_Prod_LP_" + idx).value;
-    if (Tipo_Prod != "Subrogación de deuda") {
+    if (Tipo_Prod != "SubrogaciÃ³n de deuda") {
         var Precio_Venta = convNro(document.getElementById("Precio_Venta_" + idx).value);
         var Finan_LP = convNro(document.getElementById("Finan_LP_" + idx).value);
         var Cuota_Inicial = Precio_Venta - Finan_LP;
@@ -1166,7 +1166,7 @@ function Calcular_Activos_CP() {
     for (var i = 0; i < idx; i++) {
         var Prod_CP = document.getElementById("Tipo_Prod_CP_" + (i + 1)).value;
         var Finan_CP = 0;
-        if(Prod_CP != "Subrogación de deuda"){
+        if(Prod_CP != "SubrogaciÃ³n de deuda"){
             Finan_CP = convNro(document.getElementById("Finan_CP_" + (i + 1)).value);
         }
         bg_6 = bg_6 + Finan_CP;
@@ -1211,7 +1211,7 @@ function Calcular_Activos_LP() {
     // for (var i = 0; i < idx; i++) {
     //     var Prod_LP = document.getElementById("Tipo_Prod_LP_" + (i + 1)).value;
     //     var Precio_Venta = 0;
-    //     if(Prod_LP != "Subrogación de deuda"){
+    //     if(Prod_LP != "SubrogaciÃ³n de deuda"){
     //         Precio_Venta = convNro(document.getElementById("Precio_Venta_" + (i + 1)).value);
     //     }
     //     actLP = actLP + Precio_Venta;
@@ -2509,7 +2509,7 @@ function CompletarLP(lista) {
                 index = 1;
             } else if (dato == "Leasing Inmobiliario") {
                 index = 2;
-            } else if (dato == "Subrogación de deuda") {
+            } else if (dato == "SubrogaciÃ³n de deuda") {
                 index = 3;
             }document.getElementById(codigo).selectedIndex = index;
         } else {
@@ -2532,13 +2532,13 @@ function CompletarCP(lista) {
         var dato = data[i];
         if (codigo.indexOf("Tipo_Prod_CP_") != -1) {
             var index = 0;
-            if (dato == "Financiamiento de Importación") {
+            if (dato == "Financiamiento de ImportaciÃ³n") {
                 index = 1;
-            } else if (dato == "Financiamiento de Exportación") {
+            } else if (dato == "Financiamiento de ExportaciÃ³n") {
                 index = 2;
-            } else if (dato == "Préstamo para capital de trabajo") {
+            } else if (dato == "PrÃ©stamo para capital de trabajo") {
                 index = 3;
-            } else if (dato == "Línea Préstamo para capital de trabajo") {
+            } else if (dato == "LÃ­nea PrÃ©stamo para capital de trabajo") {
                 index = 4;
                 //index = 1;
             } else if (dato == "Tarjeta capital de trabajo") {
@@ -2548,13 +2548,13 @@ function CompletarCP(lista) {
                 index = 6;
             } else if (dato == "Tarjeta Empresarial") {
                 index = 7;
-            } else if (dato == "Préstamo para adquisición de bienes muebles pequeños") {
+            } else if (dato == "PrÃ©stamo para adquisiciÃ³n de bienes muebles pequeÃ±os") {
                 index = 8;
-            } else if (dato == "Subrogación de deuda") {
+            } else if (dato == "SubrogaciÃ³n de deuda") {
                 index = 6;
-            } else if (dato == "Incremento de línea de TKT") {
+            } else if (dato == "Incremento de lÃ­nea de TKT") {
                 index = 7;
-            } else if (dato == "Incremento de línea de T/C") {
+            } else if (dato == "Incremento de lÃ­nea de T/C") {
                 index = 8;
             } else if (dato == "Otro") {
                 index = 12;
@@ -2635,7 +2635,7 @@ function AlertaInformalidad(){
     var tipoCampana = document.getElementById('tipoCampana').value;
     if(declarado > 0.95 && tipoCampana != "Aprobado"){
         document.getElementById("alertaInf").style.display = 'none';
-        alert("No califica por alta informalidad, por favor envía la propuesta por circuito regular")
+        alert("No califica por alta informalidad, por favor envÃ­a la propuesta por circuito regular")
     }else{
         document.getElementById("alertaInf").style.display = 'none';
     }
