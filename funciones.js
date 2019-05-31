@@ -2338,8 +2338,8 @@ function CompletarCronograma(datos){
     document.getElementById("PP_LD_DIFF").value = datos[14];
     document.getElementById("PP_H_DIFF").value = datos[15];
     document.getElementById("PP_V_DIFF").value = datos[16];
-     document.getElementById("LTC_Costo_Financiero_0").innerHTML = datos[17];
-    document.getElementById("LTC_Costo_Financiero_0").value = datos[17];
+     document.getElementById("LTC_Linea_Utilizada_0").innerHTML = datos[17];
+    document.getElementById("LTC_Linea_Utilizada_0").value = datos[17];
     
     D_TKT = datos[1];
     document.getElementById("LTC_Linea_Total_0").value = D_TKT;
