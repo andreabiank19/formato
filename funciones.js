@@ -58,6 +58,8 @@ function Validar(lista){
         document.getElementById("razonSocial").value = lista[4];
         document.getElementById("ubicacion").value = lista[5];
         
+        
+        
         document.getElementById("finalizado").value = lista[20];
 
         var deudas = lista[7];
@@ -2336,6 +2338,8 @@ function CompletarCronograma(datos){
     document.getElementById("PP_LD_DIFF").value = datos[14];
     document.getElementById("PP_H_DIFF").value = datos[15];
     document.getElementById("PP_V_DIFF").value = datos[16];
+     document.getElementById("LTC_Costo_Financiero_0").innerHTML = datos[17];
+    document.getElementById("LTC_Costo_Financiero_0").value = datos[17];
     
     D_TKT = datos[1];
     document.getElementById("LTC_Linea_Total_0").value = D_TKT;
