@@ -1,5 +1,5 @@
 function getDatosCliente1() {
-    var lista = [];
+   var lista = [];
     var regimen = document.getElementById('regimen').value;
     lista.push(regimen);
     var rvgl = (document.getElementById('rvgl').value);
@@ -36,7 +36,7 @@ function getDatosCliente1() {
     var edadRL = (document.getElementById('edadRL').value);
     lista.push(edadRL);
     if (edadRL < 18) {
-        alert("El representante legal debe ser mayor de edad"); 
+        alert("El representante legal debe ser mayor de edad");
     return null;
     }
     return lista;
