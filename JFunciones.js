@@ -73,7 +73,7 @@ function Validar(lista){
             var datos = lista[9];
             var dc = datos[0];
             console.log("dc:"+dc)
-            CompletarGeneralFinal(dc);
+            CompletarGeneral(dc);
             //Propuesta de Financiamiento
             var lp = datos[1];
             CompletarLP(lp);
