@@ -156,7 +156,7 @@ function Dictaminar(){
         dictamen = EvaluarFiltros0();
     }
 	console.log("dictamen?"+dictamen);
-    
+     document.getElementById("dictamen").value = dictamen;
 	if(dictamen=="No califica"){	
            
             dictamen_mensaje = EvaluarFiltros2Mensaje();  
