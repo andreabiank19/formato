@@ -25,9 +25,10 @@ function EnviarCalculadora(){
     }*/
 }
 function Validar(lista){
-     //En la condicion debería aparecer que también se excluyan los del campo excluido lista[6]
+    var mymodal = $('#myModal');
+    //En la condicion debería aparecer que también se excluyan los del campo excluido lista[6]
     if(lista[0] !=0){
-      
+      //alert("entro")
         document.getElementById("validado").style.display = '';
         document.getElementById("btn_grabar").style.display = '';
         document.getElementById("boton_finalizar").style.display = '';
@@ -71,7 +72,8 @@ function Validar(lista){
         if(lista[8] != "Por Iniciar"){
             var datos = lista[9];
             var dc = datos[0];
-            CompletarGeneral(dc);
+            console.log("dc:"+dc)
+            CompletarGeneralFinal(dc);
             //Propuesta de Financiamiento
             var lp = datos[1];
             CompletarLP(lp);
@@ -82,7 +84,7 @@ function Validar(lista){
             var patVeh = datos[4];
             CompletarPVM(patVeh);
             var ing = datos[5];
-            CompletarIngresos(ing);
+            CompletarIngresosFinal(ing);
             var egr = datos[6];
             CompletarEgresos(egr);
             
@@ -97,11 +99,12 @@ function Validar(lista){
         
         if(lista[8] == "Completado"){
             var tipoCampana = document.getElementById('tipoCampana').value;
-            alert("completado");
+            mymodal.find('.modal-body').text("completado");
+            mymodal.modal('show');
             var dictamen = document.getElementById('dictamen').value;
             document.getElementById('resultado').style.display = '';
             document.getElementById('resultado').innerHTML = "El cliente: " + dictamen;
-            
+            document.getElementById('resultado_detalle').style.display = '';
             var bloqueo = document.getElementById("bloqueo");
             bloqueo.disabled = true;
         }else{
@@ -114,7 +117,9 @@ function Validar(lista){
         
         document.getElementById("carga").style.display = 'none';
     }else{
-        alert("Los clientes deben ser evaluados por conducto regular. Por favor enviar documentación completa según checklist");
+        mymodal.find('.modal-body').text("Los clientes deben ser evaluados por conducto regular. Por favor enviar documentación completa según checklist");
+        mymodal.modal('show');
+  //  alert("Los clientes deben ser evaluados por conducto regular. Por favor enviar documentación completa según checklist");
         //alert("El cliente no se encuentra en la base de campañas");
         document.getElementById("carga").style.display = 'none';
     }
@@ -2539,10 +2544,11 @@ function CompletarCronograma(datos){
 /******************************************************************/
 
 function InformacionGrabar() {
-    var listaTodo = [];
+   var listaTodo = [];
     var lista = [];
     var DC = getDatosCliente1();
-   // console.log("prueba:"+DC);
+     var mymodal = $('#myModal');
+    console.log("prueba:"+DC);
     if (DC != null) {
         lista.push(DC);
         var BG = getBalanceGeneral();
@@ -2563,12 +2569,14 @@ function InformacionGrabar() {
         listaTodo.push(getEgresos());
         listaTodo.push(getPatrimonioInmueble());
         listaTodo.push(getPatrimonioVehMaq());
-        alert("Se grabaron los datos ingresados");
+   
+        mymodal.find('.modal-body').text("Se grabaron los datos ingresados");
+        mymodal.modal('show');
         return listaTodo;
     }
 }
 function InformacionFinalizar() {
-   console.log("entras3");
+  console.log("entras3");
     var listaTodo = [];
     var lista = [];
     var DC = getDatosCliente1();
@@ -2584,8 +2592,10 @@ function InformacionFinalizar() {
         lista.push(R);
         Dictaminar();
         var dictamen = document.getElementById("dictamen").value;
+        var dictamen_detalle = document.getElementById("resultado_detalle").innerHTML;
         lista.push(dictamen);
-        lista.push(dictamen);
+      //  alert("insertar"+dictamen_detalle);
+        lista.push(dictamen_detalle);
         listaTodo.push(lista);
         listaTodo.push(getFinanciamientoLP());
         listaTodo.push(getFinanciamientoCP());
@@ -2594,7 +2604,7 @@ function InformacionFinalizar() {
         listaTodo.push(getPatrimonioInmueble());
         listaTodo.push(getPatrimonioVehMaq());
         var tipoCampana = document.getElementById('tipoCampana').value;
-        alert("dictamen final:"+dictamen);
+        //alert("dictamen final:"+dictamen);
         return listaTodo;
     }else{
         return null;
