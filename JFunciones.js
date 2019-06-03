@@ -2790,30 +2790,4 @@ function AlertaInformalidad(){
     }
 }
 
-function BuscarCalculadora(datos){
- var regimen = document.getElementById('regimen').value;
- var mymodal = $('#myModal');
- if(regimen == "Reg General" || regimen == "RMT" ){    
-    if(datos[0]==0){
-  
-        mymodal.find('.modal-body').text(datos[1]);
-        mymodal.modal('show');
-        document.getElementById("boton_finalizar").style.display = 'none';
-        document.getElementById("btn_grabar").style.display = 'none';
-        
-     
-    }
-    else{
-       Calcular_EEFF();
-        document.getElementById("boton_finalizar").style.display = 'block';
-        document.getElementById("btn_grabar").style.display = 'block';
-        
-    }
-   
- }
- else{ 
-   Calcular_EEFF();
-   document.getElementById("boton_finalizar").style.display = 'block';
-        document.getElementById("btn_grabar").style.display = 'block';
- }
-}
+
