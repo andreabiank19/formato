@@ -71,6 +71,7 @@ function Validar(lista){
         
         if(lista[8] != "Por Iniciar"){
             var datos = lista[9];
+		console.log("tamanio"+datos.length);
 		console.log("ing"+datos);
             var dc = datos[0];
             console.log("dc:"+dc)
