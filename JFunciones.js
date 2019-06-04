@@ -297,13 +297,13 @@ function EvaluarFiltros2Mensaje(){
 		if(flg_retorno==""){
 			 flg_retorno = "- No cumple el minimo de Antiguedad (1 año)";	
 		 }else{
-			 flg_retorno = flg_retorno+"- No cumple el minimo de Antiguedad (1 año)";	
+			 flg_retorno = flg_retorno+"<br>- No cumple el minimo de Antiguedad (1 año)";	
 		 }
       }else{
         if(flg_retorno==""){
 			 flg_retorno = "- No cumple el minimo de Antiguedad (2 años)";	
 		 }else{
-			 flg_retorno = flg_retorno+"- No cumple el minimo de Antiguedad (2 años)";	
+			 flg_retorno = flg_retorno+"<br>- No cumple el minimo de Antiguedad (2 años)";	
 		 }
       }
 	}
