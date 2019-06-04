@@ -57,7 +57,7 @@ function Validar(lista){
         console.log("lista[1]:"+lista[1]);
         console.log("lista[2]:"+lista[2]);
         console.log("lista[3]:"+lista[3]);
-               console.log("lista[4]:"+lista[4]);
+            //   console.log("lista[4]:"+lista[4]);
         document.getElementById("idFila").value = lista[0];
         document.getElementById("buro").value = "G" +lista[1];
         document.getElementById("tipoCliente").value = lista[2];
@@ -71,10 +71,10 @@ function Validar(lista){
         
         if(lista[8] != "Por Iniciar"){
             var datos = lista[9];
-		console.log("tamanio"+datos.length);
-		console.log("ing"+datos);
+		//console.log("tamanio"+datos.length);
+		//console.log("ing"+datos);
             var dc = datos[0];
-            console.log("dc:"+dc)
+            //console.log("dc:"+dc)
             CompletarGeneral(dc);
             //Propuesta de Financiamiento
             var lp = datos[1];
@@ -86,7 +86,7 @@ function Validar(lista){
             var patVeh = datos[4];
             CompletarPVM(patVeh);
             var ing = datos[5];
-		console.log("ing"+ing);
+		//console.log("ing"+ing);
             CompletarIngresos(ing);
             var egr = datos[6];
             CompletarEgresos(egr);
@@ -102,7 +102,7 @@ function Validar(lista){
         
         if(lista[8] == "Completado"){
             var tipoCampana = document.getElementById('tipoCampana').value;
-            mymodal.find('.modal-body').text("completado");
+            mymodal.find('.modal-body').text("Completado");
             mymodal.modal('show');
             var dictamen = document.getElementById('dictamen').value;
             document.getElementById('resultado').style.display = '';
