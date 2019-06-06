@@ -166,6 +166,8 @@ function Dictaminar(){
            
             document.getElementById("resultado_detalle").innerHTML = dictamen_mensaje;
            
+    }else{
+    	document.getElementById("resultado_detalle").innerHTML="";
     }
    
     return dictamen;
