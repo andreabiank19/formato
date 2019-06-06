@@ -257,7 +257,7 @@ function EvaluarFiltros2Mensaje(){
     var antiguedad = convNro(document.getElementById('aExp').value);
     var declarado = convNro(document.getElementById("informalidad").value)/100;
 	var flg_retorno="";
-	
+	console.log("ventasss:"+ventas);
     if (ventas < 30000){		
 		flg_retorno = "- No cumple el minimo de Ventas (S/ 30,000)";	
 	}
