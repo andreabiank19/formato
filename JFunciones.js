@@ -1688,16 +1688,18 @@ function Calcular_Gastos_Financieros() {
 
 	
     suma2 = i1 + i2;
-	console.log("LTC_S1"+LTC_S1);
-	console.log("PCCT_S1"+PCCT_S1);
+	console.log("cuotas:"+cuotas);
+	console.log("PA_S5:"+PA_S5);
+	console.log("LTC_S1:"+LTC_S1);
+	console.log("PCCT_S1:"+PCCT_S1);
 	
-	console.log("S1"+S1);
-	console.log("PC_S2"+PC_S2);
+	console.log("S1:"+S1);
+	console.log("PC_S2:"+PC_S2);
 	
-	console.log("i1"+i1);
-	console.log("i2"+i2);
-	console.log("suma1"+suma1);
-	console.log("suma2"+suma2);
+	console.log("i1:"+i1);
+	console.log("i2:"+i2);
+	console.log("suma1:"+suma1);
+	console.log("suma2:"+suma2);
 	
     egp_gastfinan = suma1 + suma2;
     document.getElementById("egp_gastfinan").value = egp_gastfinan;
