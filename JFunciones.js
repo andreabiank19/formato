@@ -1647,7 +1647,7 @@ function Calcular_Gastos_Financieros() {
     for (var idx = 0; idx < PA_filas; idx++) {
         PA_S5 = PA_S5 + convNro(document.getElementById("PA_Cuota_Pagar_Aprox_" + idx).value);
     }
-
+//PA_Cuota_Pagar_Aprox_:6571
     var cuotas = Calcular_Cuotas_LP_Total();
     suma1 = convNro(cuotas) + convNro(PA_S5);
     var suma2 = 0;
@@ -1663,13 +1663,15 @@ function Calcular_Gastos_Financieros() {
     for (var idx = 0; idx < LTC_filas; idx++) {
         LTC_S1 = LTC_S1 + convNro(document.getElementById("LTC_Costo_Financiero_" + idx).value);
     }
+	//LTC_Costo_Financiero_:1036
+//LTC_S1:1036	
     var PCCT_S1 = 0;
     for (var idx = 0; idx < PCCT_filas; idx++) {
         PCCT_S1 = PCCT_S1 + convNro(document.getElementById("PCCT_Costo_Financiero_" + idx).value);
     }
 
     S1 = LTC_S1 + PCCT_S1;
-
+//S1:1036
     var S2 = 0;
     var PC_S2 = 0;
     for (var idx = 0; idx < PC_filas; idx++) {
@@ -1677,7 +1679,7 @@ function Calcular_Gastos_Financieros() {
     }
 
     var i1 = convNro(S1) + convNro(PC_S2);
-
+//il:1036
     var i2 = 0;
 
     var idx = document.getElementById("cant_finan_CP").value;
@@ -1685,7 +1687,7 @@ function Calcular_Gastos_Financieros() {
         i2 = i2 + Calcular_GastFin_CP(i);
     }
 
-
+//suma2:1036
 	
     suma2 = i1 + i2;
 	console.log("cuotas:"+cuotas);
@@ -2033,6 +2035,10 @@ function Calcular_Prestamo_Adquisicion(idx) {
     PA_Costo_Financiero = convNro(PA_Costo_Financiero);
 
     var PA = convNro(Calcular_Cuota_Pagar(TEM, 72, Number(PA_DIFF)));
+	console.log("PA_Amort_Capital:"+PA_Amort_Capital);
+	console.log("PA_Costo_Financiero:"+PA_Costo_Financiero);
+	console.log("PA:"+PA);
+	
     var PA_Cuota_Pagar_Aprox = PA_Amort_Capital + PA_Costo_Financiero + PA;
     PA_Cuota_Pagar_Aprox = Number(PA_Cuota_Pagar_Aprox).toFixed(0);
     document.getElementById("PA_Cuota_Pagar_Aprox_" + idx).innerHTML = Number(PA_Cuota_Pagar_Aprox).toLocaleString('en');
