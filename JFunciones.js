@@ -764,10 +764,11 @@ function Calcular_Cuotas_LP_Total() {
     var total = 0;
     for (var i = 1; i <= idx; i++) {
         total = total + convNro(document.getElementById("Cuota_LP_" + idx).value);
+		console.log("cuota:"+document.getElementById("Cuota_LP_" + idx).value);
+	    console.log("total:"+total);
 	    
     }
-	console.log("cuota:"+document.getElementById("Cuota_LP_" + idx).value);
-	    console.log("total:"+total);
+	
     return total;
 }
 function Calcular_Propuestas_CP() {
@@ -2819,4 +2820,5 @@ function AlertaInformalidad(){
         document.getElementById("alertaInf").style.display = 'none';
     }
 }
+
 
