@@ -23,6 +23,7 @@ function EnviarCalculadora(){
         document.getElementById("boton_finalizar").style.display = '';
         document.getElementById("boton_inicio").style.display = 'none'; 
     }*/
+	
 }
 function Validar(lista){
     var mymodal = $('#myModal');
@@ -763,6 +764,8 @@ function Calcular_Cuotas_LP_Total() {
     var total = 0;
     for (var i = 1; i <= idx; i++) {
         total = total + convNro(document.getElementById("Cuota_LP_" + idx).value);
+	    console.log("cuota:"+document.getElementById("Cuota_LP_" + idx).value);
+	    console.log("total:"+total);
     }
     return total;
 }
