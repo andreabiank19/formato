@@ -1777,6 +1777,7 @@ function Calcular_Cuota_Pagar(tasa, plazo, deuda) {
     tasa = Number(tasa);
     plazo = Number(plazo);
     deuda = Number(deuda);
+	
 	console.log("tasa"+tasa);
 	console.log("plazo"+plazo);
 	console.log("deuda:"+deuda);
@@ -2037,7 +2038,7 @@ function Calcular_Prestamo_Adquisicion(idx) {
     PA_Amort_Capital = convNro(PA_Amort_Capital);
     PA_Costo_Financiero = convNro(PA_Costo_Financiero);
 
-    var PA = convNro((TEM, 72, Number(PA_DIFF)));
+    var PA = convNro(Calcular_Cuota_Pagar(TEM, 72, Number(PA_DIFF)));
 	console.log("PA_Amort_Capital:"+PA_Amort_Capital);
 	console.log("PA_Costo_Financiero:"+PA_Costo_Financiero);
 	console.log("PA:"+PA);
