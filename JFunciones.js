@@ -1843,7 +1843,7 @@ function AgregarLineaTarjeta() {
 function Calcular_Linea_Tarjeta(idx) {
     var LTC_Linea_Utilizada = convNro(document.getElementById("LTC_Linea_Utilizada_" + idx).value);
     var LTC_Linea_Total = convNro(document.getElementById("LTC_Linea_Total_" + idx).value);
-
+	console.log("calculo linea tarjeta");
     var TEM = retornarTEM(TEALTC);
 
     var LTC_Costo_Financiero = LTC_Linea_Total * TEM;
@@ -2025,7 +2025,7 @@ function Calcular_Prestamo_Adquisicion(idx) {
     var PA_Mes_Anterior = convNro(document.getElementById("PA_Mes_Anterior_" + idx).value);
     var PA_Mes_Actual = convNro(document.getElementById("PA_Mes_Actual_" + idx).value);
     var PA_DIFF = convNro(document.getElementById("PA_DIFF").value);
-
+	console.log("entra a prestamo adquisición");
     var PA_Amort_Capital = PA_Mes_Anterior - PA_Mes_Actual;
     document.getElementById("PA_Amort_Capital_" + idx).innerHTML = Number(PA_Amort_Capital).toLocaleString('en');
     document.getElementById("PA_Amort_Capital_" + idx).value = PA_Amort_Capital;
@@ -2099,6 +2099,7 @@ function AgregarPrestamoPersonal() {
 }
 function Calcular_Prestamo_Personal(idx) {
     var producto = document.getElementById("PP_Producto_" + idx).value;
+	console.log("entra Calcular_Prestamo_Personal.");
     if (producto != 0) {
         var TEA = 0;
         var PP_DIFF = 0;
@@ -2207,6 +2208,7 @@ function AgregarTarjetaConsumo() {
     cell7.innerHTML = cell5 + '<div id="TC_Costo_Aprox_Pagar_' + idx + '"></div>';
 }
 function Calcular_Tarjeta_Consumo(idx) {
+	console.log("entra tarjeta consumo.");
     var TC_Linea_Utilizada = convNro(document.getElementById("TC_Linea_Utilizada_" + idx).value);
     var TC_Linea_Total = convNro(document.getElementById("TC_Linea_Total_" + idx).value);
 
@@ -2832,5 +2834,4 @@ function AlertaInformalidad(){
         document.getElementById("alertaInf").style.display = 'none';
     }
 }
-
 
