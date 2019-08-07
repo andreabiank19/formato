@@ -255,19 +255,19 @@ function EvaluarFiltros2(){
    var fin_cp=0;
    var cant = document.getElementById("cant_finan_CP").value;
    for (var i = 1; i <= cant; i++) {
-      fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + idx).value);
+      fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + i).value);
    }
 	
    var fin_lp=0;
    var cantlp = document.getElementById("cant_finan_LP").value;
    for (var i = 1; i <= cantlp; i++) {
-      fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + idx).value);
+      fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + i).value);
    }
 	
    var precio_lp=0;
 
    for (var i = 1; i <= cantlp; i++) {
-      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + idx).value);
+      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + i).value);
    }
 	
  var rat_pat = (comercial_lp+fin_lp+comercial_cp+fin_cp)/(total_activos+fin_cp+precio_lp);
@@ -331,19 +331,19 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
    var fin_cp=0;
    var cant = document.getElementById("cant_finan_CP").value;
    for (var i = 1; i <= cant; i++) {
-      fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + idx).value);
+      fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + i).value);
    }
 	
    var fin_lp=0;
    var cantlp = document.getElementById("cant_finan_LP").value;
    for (var i = 1; i <= cantlp; i++) {
-      fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + idx).value);
+      fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + i).value);
    }
 	
    var precio_lp=0;
 
    for (var i = 1; i <= cantlp; i++) {
-      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + idx).value);
+      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + i).value);
    }
 	
  var rat_pat = (comercial_lp+fin_lp+comercial_cp+fin_cp)/(total_activos+fin_cp+precio_lp);
