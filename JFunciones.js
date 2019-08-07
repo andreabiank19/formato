@@ -193,6 +193,58 @@ function EvaluarFiltros1(){
     var nroEntidades = convNro(document.getElementById('nroEnt').value);
     var cobertura = convNro(document.getElementById('CoberturaDeuda').value);
     var tipoCliente = document.getElementById('tipoCliente').value;
+
+    var comercial_cp =  convNro(document.getElementById('bg_16').value);
+    var comercial_lp =  convNro(document.getElementById('bg_19').value);
+    var total_activos =  convNro(document.getElementById('total_activo').value);
+    var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
+     //ratio de costo de venta
+	    
+   var fin_cp=0;
+   var cant = document.getElementById("cant_finan_CP").value;
+   for (var i = 1; i <= cant; i++) {
+      fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + idx).value);
+   }
+	
+   var fin_lp=0;
+   var cantlp = document.getElementById("cant_finan_LP").value;
+   for (var i = 1; i <= cantlp; i++) {
+      fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + idx).value);
+   }
+	
+   var precio_lp=0;
+
+   for (var i = 1; i <= cantlp; i++) {
+      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + idx).value);
+   }
+	
+/*
+    var rat_cv = (  convNro(document.getElementById("total_pasivo_cte").value) +fin_cp)/(egp_costoven);
+  
+	
+   var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
+  if(rat_cv>=0 && rat_cv<=(rat_cv_max)){
+    var cal_rat_cv = 1;
+  }
+  else{
+    var cal_rat_cv = 0; 
+  }
+
+  if(cal_rat_cv =0){
+	 estado = false;
+  }
+  */
+	
+  var rat_pat = (comercial_lp+fin_lp+comercial_cp+fin_cp)/(total_activos+fin_cp+precio_lp);
+  
+  if(rat_pat>=0 && rat_pat<=rat_pat_max){
+    var cal_rat_pat=1;
+  }else{
+    var cal_rat_pat=0; 
+  }
+  if(cal_rat_pat =0){
+	 estado = false;
+  }
 	
     if(cobertura > 1.3){
         if(tipoCliente == "PJ" && nroEntidades >=6){			
@@ -333,7 +385,45 @@ function EvaluarFiltros1Mensaje(flg_retorno){
     var nroEntidades = convNro(document.getElementById('nroEnt').value);
     var cobertura = convNro(document.getElementById('CoberturaDeuda').value);
     var tipoCliente = document.getElementById('tipoCliente').value;
+    var comercial_cp =  convNro(document.getElementById('bg_16').value);
+    var comercial_lp =  convNro(document.getElementById('bg_19').value);
+    var total_activos =  convNro(document.getElementById('total_activo').value);
+    var rat_pat_max = convNro(document.getElementById("porc_pat").value);
+    var fin_cp=0;
 	
+   var cant = document.getElementById("cant_finan_CP").value;
+   for (var i = 1; i <= cant; i++) {
+      fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + idx).value);
+   }
+	
+   var fin_lp=0;
+   var cantlp = document.getElementById("cant_finan_LP").value;
+   for (var i = 1; i <= cantlp; i++) {
+      fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + idx).value);
+   }
+	
+   var precio_lp=0;
+
+   for (var i = 1; i <= cantlp; i++) {
+      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + idx).value);
+   }
+   
+  var rat_pat = (comercial_lp+fin_lp+comercial_cp+fin_cp)/(total_activos+fin_cp+precio_lp);
+  
+  if(rat_pat>=0 && rat_pat<=rat_pat_max){
+    var cal_rat_pat=1;
+  }else{
+    var cal_rat_pat=0; 
+  }
+ 
+	console.log("cal_rat_pat"+cal_rat_pat);
+	console.log("rat_pat_max"+rat_pat_max);
+
+  if(cal_rat_pat =0){
+	 flg_retorno=	
+         "- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";
+  }	
+   	
     if(cobertura > 1.3){
 		
         if(tipoCliente == "PJ" && nroEntidades >=6){
@@ -1643,7 +1733,8 @@ function Calcular_Gastos_Financieros() {
 
     var PA_table = document.getElementById("tablaPrestamoAdquisicion");
     var PA_filas = PA_table.rows.length - 1;
-    var PA_S5 = 0;
+    var PA_S5 = 0;    	
+	
     for (var idx = 0; idx < PA_filas; idx++) {
         PA_S5 = PA_S5 + convNro(document.getElementById("PA_Cuota_Pagar_Aprox_" + idx).value);
     }
