@@ -194,29 +194,7 @@ function EvaluarFiltros1(){
     var cobertura = convNro(document.getElementById('CoberturaDeuda').value);
     var tipoCliente = document.getElementById('tipoCliente').value;
 
-    var comercial_cp =  convNro(document.getElementById('bg_16').value);
-    var comercial_lp =  convNro(document.getElementById('bg_19').value);
-    var total_activos =  convNro(document.getElementById('total_activo').value);
-    var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
-     //ratio de costo de venta
-	    
-   var fin_cp=0;
-   var cant = document.getElementById("cant_finan_CP").value;
-   for (var i = 1; i <= cant; i++) {
-      fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + idx).value);
-   }
-	
-   var fin_lp=0;
-   var cantlp = document.getElementById("cant_finan_LP").value;
-   for (var i = 1; i <= cantlp; i++) {
-      fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + idx).value);
-   }
-	
-   var precio_lp=0;
-
-   for (var i = 1; i <= cantlp; i++) {
-      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + idx).value);
-   }
+   
 	
 /*
     var rat_cv = (  convNro(document.getElementById("total_pasivo_cte").value) +fin_cp)/(egp_costoven);
@@ -235,16 +213,7 @@ function EvaluarFiltros1(){
   }
   */
 	
-  var rat_pat = (comercial_lp+fin_lp+comercial_cp+fin_cp)/(total_activos+fin_cp+precio_lp);
-  
-  if(rat_pat>=0 && rat_pat<=rat_pat_max){
-    var cal_rat_pat=1;
-  }else{
-    var cal_rat_pat=0; 
-  }
-  if(cal_rat_pat =0){
-	 estado = false;
-  }
+ 
 	
     if(cobertura > 1.3){
         if(tipoCliente == "PJ" && nroEntidades >=6){			
@@ -277,13 +246,52 @@ function EvaluarFiltros2(){
     var edadRL = convNro(document.getElementById('edadRL').value);
     var antiguedad = convNro(document.getElementById('aExp').value);
     var declarado = convNro(document.getElementById("informalidad").value)/100;
+    var comercial_cp =  convNro(document.getElementById('bg_16').value);
+    var comercial_lp =  convNro(document.getElementById('bg_19').value);
+    var total_activos =  convNro(document.getElementById('total_activo').value);
+    var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
+     //ratio de costo de venta
+	    
+   var fin_cp=0;
+   var cant = document.getElementById("cant_finan_CP").value;
+   for (var i = 1; i <= cant; i++) {
+      fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + idx).value);
+   }
+	
+   var fin_lp=0;
+   var cantlp = document.getElementById("cant_finan_LP").value;
+   for (var i = 1; i <= cantlp; i++) {
+      fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + idx).value);
+   }
+	
+   var precio_lp=0;
+
+   for (var i = 1; i <= cantlp; i++) {
+      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + idx).value);
+   }
+	
+ var rat_pat = (comercial_lp+fin_lp+comercial_cp+fin_cp)/(total_activos+fin_cp+precio_lp);
+  
+  if(rat_pat>=0 && rat_pat<=rat_pat_max){
+    var cal_rat_pat=1;
+  }else{
+    var cal_rat_pat=0; 
+  }
+  	
+	
+	
+	
+	
     if (ventas >= 30000){
         if (egp_uneta > 0) {
             if ((tipoCliente == 'PJ' && (buro == 'G1' || buro == 'G2' || buro == 'G3' || buro == 'G4' || buro == 'G5' || buro == 'NB' || buro == 'GNB')) || (tipoCliente == 'PNN' && (buro == 'G1' || buro == 'G2' || buro == 'G3' || buro == 'G4' || buro == 'G5' || buro == 'NB' || buro == 'GNB'))) {
                 if (edadRL >= 25) {
                     if ((tipoCliente == 'PJ' && antiguedad >= 1) || (tipoCliente == 'PNN' && antiguedad >= 2)) {
                         if(declarado < 0.92){
-                            estado = true;
+                            
+				if(cal_rat_pat ==1){
+					 estado = true;
+				  }
                         }
                     }
                 }
@@ -313,9 +321,54 @@ function EvaluarFiltros2Mensaje(){
     var declarado = convNro(document.getElementById("informalidad").value)/100;
 	var flg_retorno="";
 	console.log("ventasss:"+ventas);
+
+var comercial_cp =  convNro(document.getElementById('bg_16').value);
+    var comercial_lp =  convNro(document.getElementById('bg_19').value);
+    var total_activos =  convNro(document.getElementById('total_activo').value);
+    var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
+     //ratio de costo de venta
+	    
+   var fin_cp=0;
+   var cant = document.getElementById("cant_finan_CP").value;
+   for (var i = 1; i <= cant; i++) {
+      fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + idx).value);
+   }
+	
+   var fin_lp=0;
+   var cantlp = document.getElementById("cant_finan_LP").value;
+   for (var i = 1; i <= cantlp; i++) {
+      fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + idx).value);
+   }
+	
+   var precio_lp=0;
+
+   for (var i = 1; i <= cantlp; i++) {
+      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + idx).value);
+   }
+	
+ var rat_pat = (comercial_lp+fin_lp+comercial_cp+fin_cp)/(total_activos+fin_cp+precio_lp);
+  
+  if(rat_pat>=0 && rat_pat<=rat_pat_max){
+    var cal_rat_pat=1;
+  }else{
+    var cal_rat_pat=0; 
+  }
+ 	
+	
+		
+	console.log("rat_pat:"+rat_pat);
+	console.log("rat_pat_max:"+rat_pat_max);
+	
     if (ventas < 30000){		
 		flg_retorno = "- No cumple el minimo de Ventas (S/ 30,000)";	
 	}
+    if (cal_rat_pat == 0) {
+		 if(flg_retorno==""){
+			 flg_retorno = "- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";	
+		 }else{
+			 flg_retorno = flg_retorno+"<br>- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";
+		 }
+    }
 	
     if (egp_uneta <= 0) {
 		 if(flg_retorno==""){
