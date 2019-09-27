@@ -5947,7 +5947,7 @@ button.close {
   padding: 15px;
 }
 .modal-footer {
-  padding: 5px;
+  padding: 8px 15px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
 }
