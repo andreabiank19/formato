@@ -116,7 +116,9 @@ function Validar(lista){
             document.getElementById("buro").disabled = true;
             document.getElementById("tipoCliente").disabled = true;
             document.getElementById("ruc").disabled = true;
-	  console.log("voy mostrarle el mesnaje");
+	    mymodal.find('.modal-body').text("Debido a la coyuntura actual, las visitas de campo quedan suspendidas hasta nuevo aviso. Si la visita realizada es previo al estado de emergencia, se deberá enviar correo al Equipo de Riesgos-Campañas para evaluar el caso");
+            mymodal.modal('show');
+	    bloqueo.disabled = true;
         }
         
         
