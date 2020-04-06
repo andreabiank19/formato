@@ -116,6 +116,7 @@ function Validar(lista){
             document.getElementById("buro").disabled = true;
             document.getElementById("tipoCliente").disabled = true;
             document.getElementById("ruc").disabled = true;
+	  console.log("voy mostrarle el mesnaje");
         }
         
         
