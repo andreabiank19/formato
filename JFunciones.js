@@ -113,7 +113,7 @@ function Validar(lista){
             bloqueo.disabled = true;
         }else{
 		console.log("lista[11]:"+lista[11])
-	   if(lista[11] =="0"){	
+	   if(lista[11] ==0){	
            
 	    mymodal.find('.modal-body').text("Debido a la coyuntura actual, las visitas de campo quedan suspendidas hasta nuevo aviso. Si la visita realizada es previo al estado de emergencia, se deberá enviar correo al Equipo de Riesgos-Campañas para evaluar el caso");
             mymodal.modal('show');
