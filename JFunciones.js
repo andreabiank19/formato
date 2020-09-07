@@ -65,7 +65,8 @@ function Validar(lista){
         document.getElementById("nroEnt").value = lista[3];
         document.getElementById("razonSocial").value = lista[4];
         document.getElementById("ubicacion").value = lista[5];
-        
+         document.getElementById("deuda_reactiva").value = lista[12];
+        document.getElementById("interes_reactiva").value = lista[13];
         document.getElementById("finalizado").value = lista[20];
 
         var deudas = lista[7];
@@ -1585,7 +1586,7 @@ function Calcular_Deuda_Financiera_CP() {
     }
 
     var pasCP = convNro(S1) + convNro(PC_S2) + convNro(suma_cp);
-    document.getElementById("bg_16").value = pasCP;
+    document.getElementById("bg_16").value = pasCP +Number(document.getElementById("deuda_reactiva").value) ;
     document.getElementById("bg_16").innerHTML = Number(pasCP).toLocaleString('en');
     return convNro(pasCP);
 }
@@ -1864,7 +1865,7 @@ function Calcular_Gastos_Financieros() {
 	console.log("suma1:"+suma1);
 	console.log("suma2:"+suma2);
 	
-    egp_gastfinan = suma1 + suma2;
+    egp_gastfinan = suma1 + suma2 + Number( document.getElementById("interes_reactiva").value) ;
     document.getElementById("egp_gastfinan").value = egp_gastfinan;
     egp_gastfinan = Number(egp_gastfinan).toFixed(0);
     document.getElementById("egp_gastfinan").innerHTML = Number(egp_gastfinan).toLocaleString('en');
