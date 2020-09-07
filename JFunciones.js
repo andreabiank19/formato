@@ -1584,7 +1584,7 @@ function Calcular_Deuda_Financiera_CP() {
     for (var idx = 0; idx < PC_filas; idx++) {
         PC_S2 = PC_S2 + convNro(document.getElementById("PC_Monto_" + idx).value);
     }
-
+console.log("Number(document.getElementById("deuda_reactiva").value):"+Number(document.getElementById("deuda_reactiva").value))
     var pasCP = convNro(S1) + convNro(PC_S2) + convNro(suma_cp);
     document.getElementById("bg_16").value = pasCP +Number(document.getElementById("deuda_reactiva").value) ;
     document.getElementById("bg_16").innerHTML = Number(pasCP).toLocaleString('en');
@@ -1864,7 +1864,7 @@ function Calcular_Gastos_Financieros() {
 	console.log("i2:"+i2);
 	console.log("suma1:"+suma1);
 	console.log("suma2:"+suma2);
-	
+	console.log("Number( document.getElementById("interes_reactiva").value):"+Number( document.getElementById("interes_reactiva").value))
     egp_gastfinan = suma1 + suma2 + Number( document.getElementById("interes_reactiva").value) ;
     document.getElementById("egp_gastfinan").value = egp_gastfinan;
     egp_gastfinan = Number(egp_gastfinan).toFixed(0);
