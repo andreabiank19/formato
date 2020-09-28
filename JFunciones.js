@@ -1588,7 +1588,7 @@ console.log("reactiva1:"+Number(document.getElementById("deuda_reactiva").value)
     var pasCP = convNro(S1) + convNro(PC_S2) + convNro(suma_cp);
     document.getElementById("bg_16").value = pasCP +Number(document.getElementById("deuda_reactiva").value) ;
     document.getElementById("bg_16").innerHTML = Number(document.getElementById("bg_16").value).toLocaleString('en');
-    return convNro(pasCP);
+    return convNro(document.getElementById("bg_16").value);
 }
 function Calcular_Pasivos_No_Corrientes() {
     var bg_19 = Calcular_Deuda_Financiera_LP();
