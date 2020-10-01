@@ -277,7 +277,7 @@ function EvaluarFiltros2(){
   	
  var egp_costoven = convNro(document.getElementById("egp_costoven").value);
    
- var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value)+fin_cp)/(egp_costoven*12);
+ var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value))/(egp_costoven*12);
   
 	
    var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
@@ -377,7 +377,7 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
 	
  var egp_costoven = convNro(document.getElementById("egp_costoven").value);
    
- var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value)+fin_cp)/(egp_costoven*12);
+ var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value))/(egp_costoven*12);
   
 	
    var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
