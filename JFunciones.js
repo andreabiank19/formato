@@ -387,7 +387,8 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
   else{
     var cal_rat_cv = 0; 
   }
-
+	console.log("rat_cv:"+rat_cv);
+	console.log("rat_cv_max:"+rat_cv_max);
 			
 	console.log("rat_pat:"+rat_pat);
 	console.log("rat_pat_max:"+rat_pat_max);
@@ -402,13 +403,7 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
 			 flg_retorno = flg_retorno+"<br>- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";
 		 }
     }
-    if (cal_rat_pat == 0) {
-		 if(flg_retorno==""){
-			 flg_retorno = "- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";	
-		 }else{
-			 flg_retorno = flg_retorno+"<br>- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";
-		 }
-    }
+   
     if (cal_rat_cv == 0) {
 		 if(flg_retorno==""){
 			 flg_retorno = "- Las necesidades corrientes se encuentra atendidas con deudas de capital de trabajo a la fecha. No requiriendo de mayor financiamiento";	
