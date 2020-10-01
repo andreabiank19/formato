@@ -203,25 +203,8 @@ function EvaluarFiltros1(){
     var nroEntidades = convNro(document.getElementById('nroEnt').value);
     var cobertura = convNro(document.getElementById('CoberturaDeuda').value);
     var tipoCliente = document.getElementById('tipoCliente').value;
-
    
-	
-/*
-    var rat_cv = (  convNro(document.getElementById("total_pasivo_cte").value) +fin_cp)/(egp_costoven);
   
-	
-   var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
-  if(rat_cv>=0 && rat_cv<=(rat_cv_max)){
-    var cal_rat_cv = 1;
-  }
-  else{
-    var cal_rat_cv = 0; 
-  }
-
-  if(cal_rat_cv =0){
-	 estado = false;
-  }
-  */
 	
  
 	
@@ -284,7 +267,7 @@ function EvaluarFiltros2(){
       precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + i).value);
    }
 	*/
- var rat_pat = (comercial_lp+/*fin_lp+*/comercial_cp+fin_cp)/(total_activos+fin_cp/*+precio_lp*/);
+ var rat_pat =   convNro(document.getElementById("total_pasivo").value) / total_activos
   
   if(rat_pat>=0 && rat_pat<=rat_pat_max){
     var cal_rat_pat=1;
@@ -292,7 +275,22 @@ function EvaluarFiltros2(){
     var cal_rat_pat=0; 
   }
   	
+ var egp_costoven = convNro(document.getElementById("egp_costoven").value);
+   
+ var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value)+fin_cp)/(egp_costoven*12);
+  
 	
+   var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
+  if(rat_cv>=0 && rat_cv<=(rat_cv_max)){
+    var cal_rat_cv = 1;
+  }
+  else{
+    var cal_rat_cv = 0; 
+  }
+
+  if(cal_rat_cv =0){
+	 estado = false;
+  }	
 	
 	
 	
@@ -304,7 +302,11 @@ function EvaluarFiltros2(){
                         if(declarado < 0.92){
                             
 				if(cal_rat_pat ==1){
-					 estado = true;
+					if(cal_rat_cv ==1){
+					    estado = true;
+				         }
+					 
+					
 				  }
                         }
                     }
@@ -364,7 +366,7 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
       precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + i).value);
    }
 	*/
- var rat_pat = (comercial_lp+/*fin_lp+*/comercial_cp+fin_cp)/(total_activos+fin_cp/*+precio_lp*/);
+ var rat_pat =  convNro(document.getElementById("total_pasivo").value) / total_activos
   
   if(rat_pat>=0 && rat_pat<=rat_pat_max){
     var cal_rat_pat=1;
@@ -373,7 +375,20 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
   }
  	
 	
-		
+ var egp_costoven = convNro(document.getElementById("egp_costoven").value);
+   
+ var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value)+fin_cp)/(egp_costoven*12);
+  
+	
+   var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
+  if(rat_cv>=0 && rat_cv<=(rat_cv_max)){
+    var cal_rat_cv = 1;
+  }
+  else{
+    var cal_rat_cv = 0; 
+  }
+
+			
 	console.log("rat_pat:"+rat_pat);
 	console.log("rat_pat_max:"+rat_pat_max);
 	
@@ -385,6 +400,20 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
 			 flg_retorno = "- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";	
 		 }else{
 			 flg_retorno = flg_retorno+"<br>- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";
+		 }
+    }
+    if (cal_rat_pat == 0) {
+		 if(flg_retorno==""){
+			 flg_retorno = "- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";	
+		 }else{
+			 flg_retorno = flg_retorno+"<br>- Se encuentra sobreendeudado con un ratio de "+convNro(rat_pat*100).toFixed(2)+"% (Máx. "+rat_pat_max*100+"%)";
+		 }
+    }
+    if (cal_rat_cv == 0) {
+		 if(flg_retorno==""){
+			 flg_retorno = "- Las necesidades corrientes se encuentra atendidas con deudas de capital de trabajo a la fecha. No requiriendo de mayor financiamiento";	
+		 }else{
+			 flg_retorno = flg_retorno+"<br> - Las necesidades corrientes se encuentra atendidas con deudas de capital de trabajo a la fecha. No requiriendo de mayor financiamiento";		
 		 }
     }
 	
