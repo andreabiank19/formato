@@ -378,7 +378,10 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
  var egp_costoven = convNro(document.getElementById("egp_costoven").value);
    
  var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value))/(egp_costoven*12);
-  
+	 console.log("egp_costoven:"+egp_costoven);
+  console.log("convNro(document.getElementById("bg_16").value):"+convNro(document.getElementById("bg_16").value));
+console.log("convNro(document.getElementById("bg_17").value):"+convNro(document.getElementById("bg_17").value));
+	
 	
    var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
   if(rat_cv>=0 && rat_cv<=(rat_cv_max)){
