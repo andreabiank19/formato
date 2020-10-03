@@ -315,8 +315,15 @@ function EvaluarFiltros2(){
             }
         }
     }	
-	
-    console.log("estado:"+estado)
+	console.log("estado:"+estado)
+    console.log("ventas:"+ventas)
+	console.log("egp_uneta:"+egp_uneta)
+	console.log("tipoCliente:"+tipoCliente)
+	console.log("buro:"+buro)
+	console.log("antiguedad:"+antiguedad)
+	console.log("declarado:"+declarado)
+	console.log("cal_rat_pat:"+cal_rat_pat)
+	console.log("cal_rat_cv:"+cal_rat_cv)
     if(estado){
         estado = EvaluarFiltros1();
     }
