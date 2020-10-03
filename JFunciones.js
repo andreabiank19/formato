@@ -282,14 +282,14 @@ function EvaluarFiltros2(){
   
 	
    var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
-  if(rat_cv>=0 && rat_cv<=(rat_cv_max)){
+  if(rat_cv>=0 && rat_cv<=rat_cv_max){
     var cal_rat_cv = 1;
   }
   else{
     var cal_rat_cv = 0; 
   }
 
-  if(cal_rat_cv =0){
+  if(cal_rat_cv ==0){
 	 estado = false;
   }	
 	console.log("rat_cv_max:"+rat_cv_max)
