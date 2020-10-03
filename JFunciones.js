@@ -292,9 +292,9 @@ function EvaluarFiltros2(){
   if(cal_rat_cv =0){
 	 estado = false;
   }	
-	
-	
-	
+	console.log("rat_cv_max:"+rat_cv_max)
+	console.log("rat_cv:"+rat_cv)
+	console.log("cal_rat_cv:"+cal_rat_cv)
     if (ventas >= 30000){
         if (egp_uneta > 0) {
             if ((tipoCliente == 'PJ' && (buro == 'G1' || buro == 'G2' || buro == 'G3' || buro == 'G4' || buro == 'G5' || buro == 'NB' || buro == 'GNB')) || (tipoCliente == 'PNN' && (buro == 'G1' || buro == 'G2' || buro == 'G3' || buro == 'G4' || buro == 'G5' || buro == 'NB' || buro == 'GNB'))) {
