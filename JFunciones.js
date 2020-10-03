@@ -226,8 +226,9 @@ function EvaluarFiltros1(){
     if(cobertura < 1.3){
         estado = false;
     }
-    
-    console.log("estado:"+estado)
+    console.log("nroEntidades:"+nroEntidades)
+    console.log("cobertura:"+cobertura)
+	console.log("estado:"+estado)
     return estado
 }
 function EvaluarFiltros2(){
