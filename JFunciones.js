@@ -68,7 +68,8 @@ function Validar(lista){
          document.getElementById("deuda_reactiva").value = lista[12];
         document.getElementById("interes_reactiva").value = lista[13];
         document.getElementById("finalizado").value = lista[20];
-
+	    console.log("lista[14]:"+lista[14])
+document.getElementById("flg_aplica").value = lista[14];
         var deudas = lista[7];
         
         if(lista[8] != "Por Iniciar"){
@@ -277,12 +278,16 @@ function EvaluarFiltros2(){
   }
   	
  var egp_costoven = convNro(document.getElementById("egp_costoven").value);
-   
- var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value))/(egp_costoven*12);
+var adicional=0;
+ if(convNro(document.getElementById("flg_aplica").value)==1){
+   adicional=egp_costoven*2+convNro(document.getElementById("egp_gastop").value)*2
+ }	
+	console.log("adicional:"+adicional)
+ var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value)-adicional )/(egp_costoven*12);
   
 	
    var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
-  if(rat_cv>=0 && rat_cv<=rat_cv_max){
+  if( rat_cv<=rat_cv_max){
     var cal_rat_cv = 1;
   }
   else{
@@ -385,14 +390,16 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
 	
  var egp_costoven = convNro(document.getElementById("egp_costoven").value);
    
- var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value))/(egp_costoven*12);
-	 console.log("egp_costoven:"+egp_costoven);
-  console.log("bg_16"+convNro(document.getElementById("bg_16").value));
-console.log("bg_17"+convNro(document.getElementById("bg_17").value));
-	
+var adicional=0;
+ if(convNro(document.getElementById("flg_aplica").value)==1){
+   adicional=egp_costoven*2+convNro(document.getElementById("egp_gastop").value)*2
+ }	
+	console.log("adicional:"+adicional)
+ var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value)-adicional )/(egp_costoven*12);
+  
 	
    var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
-  if(rat_cv>=0 && rat_cv<=rat_cv_max){
+  if( rat_cv<=rat_cv_max){
     var cal_rat_cv = 1;
   }
   else{
