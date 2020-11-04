@@ -283,7 +283,7 @@ var adicional=0;
    adicional=egp_costoven*2+convNro(document.getElementById("egp_gastop").value)*2
  }	
 	console.log("adicional:"+adicional)
- var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value)-adicional )/(egp_costoven*12);
+ var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value) )/(egp_costoven*12+adicional);
   
 	
    var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
@@ -395,7 +395,7 @@ var adicional=0;
    adicional=egp_costoven*2+convNro(document.getElementById("egp_gastop").value)*2
  }	
 	console.log("adicional:"+adicional)
- var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value)-adicional )/(egp_costoven*12);
+ var rat_cv = (  convNro(document.getElementById("bg_16").value) +  convNro(document.getElementById("bg_17").value) )/(egp_costoven*12+adicional);
   
 	
    var rat_cv_max = convNro(document.getElementById("porc_cv").value);	
