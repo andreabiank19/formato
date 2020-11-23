@@ -978,7 +978,7 @@ function Calcular_Cuotas_LP_Total() {
     return total;
 }
 function Calcular_Propuestas_CP() {
-   if(document.getElementById("flg_renovacion").value==0){
+   
 	    var idx = document.getElementById("cant_finan_CP").value;
 
 	    for (var i = 1; i <= idx; i++) {
@@ -992,7 +992,7 @@ function Calcular_Propuestas_CP() {
 		Calcular_GastFin_CP(i);
 	    }
 	    Calcular_EGP();
-   }
+   
 }
 function Calcular_Tasa_Mensual_CP(idx) {
     var TEA_CP = convNro(document.getElementById("TEA_CP_" + idx).value);
@@ -1528,6 +1528,7 @@ function Calcular_Inventarios() {
     return convNro(inventarios);
 }
 function Calcular_Activos_CP() {
+ if(document.getElementById("flg_renovacion").value==0){	
     var idx = Number(document.getElementById("cant_finan_CP").value);
     var bg_6 = 0;
     for (var i = 0; i < idx; i++) {
@@ -1541,6 +1542,7 @@ function Calcular_Activos_CP() {
     document.getElementById("bg_6").value = bg_6;
     document.getElementById("bg_6").innerHTML = Number(bg_6).toLocaleString('en');
     return convNro(bg_6);
+ }
 }
 function Calcular_Linea_No_Utilizada() {
     var bg_11 = 0;
