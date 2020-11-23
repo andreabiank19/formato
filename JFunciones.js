@@ -68,7 +68,7 @@ function Validar(lista){
          document.getElementById("deuda_reactiva").value = lista[12];
 	    console.log("lista[15]:"+lista[15])
         document.getElementById("flg_renovacion").value = lista[15];
-	      console.log( document.getElementById("flg_renovacion").value:"+ document.getElementById("flg_renovacion").value)
+	      console.log( "document.getElementById(flg_renovacion).value:"+ document.getElementById("flg_renovacion").value)
 	  document.getElementById("interes_reactiva").value = lista[13];
         document.getElementById("finalizado").value = lista[20];
 	    console.log("lista[14]:"+lista[14])
