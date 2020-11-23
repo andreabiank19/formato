@@ -810,6 +810,7 @@ function Agregar_Financimiento_CP() {
                          '           <option value="Incremento de línea de TKT">Incremento de línea de TKT</option>' +
                          '           <option value="Incremento de línea de T/C">Incremento de línea de T/C empresarial</option>' +
                          '           <option value="Otro">Otro</option>-->' +
+	                 '           <option value="Renovación de Linea">Renovación de Linea</option>' +
                          '         </select>' +
                          '       </td>' +
                          '     </tr>' +
@@ -2965,7 +2966,11 @@ function CompletarCP(lista) {
                 index = 8;
             } else if (dato == "Otro") {
                 index = 12;
-            }document.getElementById(codigo).selectedIndex = index;
+            }
+            else if (dato == "Renovación de Linea") {
+                index = 13;
+            }
+		document.getElementById(codigo).selectedIndex = index;
         } else {
             document.getElementById(codigo).value = data[i];
             document.getElementById(codigo).innerHTML = data[i];
