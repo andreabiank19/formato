@@ -66,7 +66,8 @@ function Validar(lista){
         document.getElementById("razonSocial").value = lista[4];
         document.getElementById("ubicacion").value = lista[5];
          document.getElementById("deuda_reactiva").value = lista[12];
-        document.getElementById("interes_reactiva").value = lista[13];
+        document.getElementById("flg_renovacion").value = lista[15];
+	  document.getElementById("interes_reactiva").value = lista[13];
         document.getElementById("finalizado").value = lista[20];
 	    console.log("lista[14]:"+lista[14])
 document.getElementById("flg_aplica").value = lista[14];
@@ -975,19 +976,21 @@ function Calcular_Cuotas_LP_Total() {
     return total;
 }
 function Calcular_Propuestas_CP() {
-    var idx = document.getElementById("cant_finan_CP").value;
+   if(document.getElementById("flg_renovacion").value==0){
+	    var idx = document.getElementById("cant_finan_CP").value;
 
-    for (var i = 1; i <= idx; i++) {
-        var Tipo_Prod = document.getElementById("Tipo_Prod_CP_" + i).value;
-        document.getElementById("Tipo_Prod_CP_" + i).setAttribute('value', Tipo_Prod);
-        var vIndex = document.getElementById("Tipo_Prod_CP_" + i).selectedIndex;
-        document.getElementById("Tipo_Prod_CP_" + i).setAttribute('selectedIndex', vIndex);
+	    for (var i = 1; i <= idx; i++) {
+		var Tipo_Prod = document.getElementById("Tipo_Prod_CP_" + i).value;
+		document.getElementById("Tipo_Prod_CP_" + i).setAttribute('value', Tipo_Prod);
+		var vIndex = document.getElementById("Tipo_Prod_CP_" + i).selectedIndex;
+		document.getElementById("Tipo_Prod_CP_" + i).setAttribute('selectedIndex', vIndex);
 
-        Calcular_Tasa_Mensual_CP(i);
-        Calcular_Cuota_CP(i);
-        Calcular_GastFin_CP(i);
-    }
-    Calcular_EGP();
+		Calcular_Tasa_Mensual_CP(i);
+		Calcular_Cuota_CP(i);
+		Calcular_GastFin_CP(i);
+	    }
+	    Calcular_EGP();
+   }
 }
 function Calcular_Tasa_Mensual_CP(idx) {
     var TEA_CP = convNro(document.getElementById("TEA_CP_" + idx).value);
