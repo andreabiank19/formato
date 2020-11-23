@@ -1528,21 +1528,23 @@ function Calcular_Inventarios() {
     return convNro(inventarios);
 }
 function Calcular_Activos_CP() {
- if(document.getElementById("flg_renovacion").value==0){	
+	
     var idx = Number(document.getElementById("cant_finan_CP").value);
     var bg_6 = 0;
     for (var i = 0; i < idx; i++) {
         var Prod_CP = document.getElementById("Tipo_Prod_CP_" + (i + 1)).value;
         var Finan_CP = 0;
-        if(Prod_CP != "Subrogación de deuda"){
-            Finan_CP = convNro(document.getElementById("Finan_CP_" + (i + 1)).value);
-        }
+	if(document.getElementById("flg_renovacion").value==0){
+		if(Prod_CP != "Subrogación de deuda"){
+		    Finan_CP = convNro(document.getElementById("Finan_CP_" + (i + 1)).value);
+		}
+	}	
         bg_6 = bg_6 + Finan_CP;
     }
     document.getElementById("bg_6").value = bg_6;
     document.getElementById("bg_6").innerHTML = Number(bg_6).toLocaleString('en');
     return convNro(bg_6);
- }
+ 
 }
 function Calcular_Linea_No_Utilizada() {
     var bg_11 = 0;
