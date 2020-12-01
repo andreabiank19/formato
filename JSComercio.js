@@ -354,8 +354,8 @@ function calcular_gastopersonal() {
      if(gasto_familiar_provisional<0){
         document.getElementById("egp_gastfam").value=0;document.getElementById("egp_gastfam").innerHTML=0;
      }else{
-        document.getElementById("egp_gastfam").value=convNro(gasto_familiar_provisional);
-        document.getElementById("egp_gastfam").innerHTML=convNro(gasto_familiar_provisional);
+     document.getElementById("egp_gastfam").value=Number(Math.round(convNro(gasto_familiar_provisional))).toLocaleString('en');
+     document.getElementById("egp_gastfam").innerHTML=Number(convNro(Math.round(gasto_familiar_provisional))).toLocaleString('en');
 
      }
    
