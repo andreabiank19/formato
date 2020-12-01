@@ -331,7 +331,7 @@ function calcular_gastop_comercio() {
      document.getElementById("egp_gastfam").value=0;document.getElementById("egp_gastfam").innerHTML=0;
   }else{
      document.getElementById("egp_gastfam").value=gasto_familiar_provisional;
-     document.getElementById("egp_gastfam").value=gasto_familiar_provisional;
+     document.getElementById("egp_gastfam").innerHTML=gasto_familiar_provisional;
 
   }
   
