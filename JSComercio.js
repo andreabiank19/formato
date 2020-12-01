@@ -324,6 +324,18 @@ function calcular_gastop_comercio() {
     document.getElementById("total_gastop_comercio").value = Number(gastop1 + gastop2 + gastop3 + gastop4 + gastop5);
     document.getElementById("egp_gastop").innerHTML = Number(gastop1 + gastop2 + gastop3 + gastop4 + gastop5).toLocaleString('en');
     document.getElementById("egp_gastop").value = Number(gastop1 + gastop2 + gastop3 + gastop4 + gastop5);
+    
+   var gasto_familiar_provisional=convNro(document.getElementById("total_gastpersonal").value)-convNro(document.getElementById("egp_gastop").value)*0.70;
+
+  if(gasto_familiar_provisional<0){
+     document.getElementById("egp_gastfam").value=0;document.getElementById("egp_gastfam").innerHTML=0;
+  }else{
+     document.getElementById("egp_gastfam").value=gasto_familiar_provisional;
+     document.getElementById("egp_gastfam").value=gasto_familiar_provisional;
+
+  }
+  
+   
     Calcular_EEFF();
 }
 function calcular_gastopersonal() {
