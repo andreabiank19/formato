@@ -70,6 +70,8 @@ function Validar(lista){
         document.getElementById("flg_renovacion").value = lista[15];
 	      console.log( "document.getElementById(flg_renovacion).value:"+ document.getElementById("flg_renovacion").value)
 	  document.getElementById("interes_reactiva").value = lista[13];
+	    document.getElementById("ppm_persona").value = lista[16];
+	      document.getElementById("ppm_pyme").value = lista[17];
         document.getElementById("finalizado").value = lista[20];
 	    console.log("lista[14]:"+lista[14])
 document.getElementById("flg_aplica").value = lista[14];
@@ -1854,71 +1856,16 @@ function Calcular_Gastos_Financieros() {
     var egp_gastfinan = 0;
     var suma1 = 0;
 
-    var PA_table = document.getElementById("tablaPrestamoAdquisicion");
-    var PA_filas = PA_table.rows.length - 1;
-    var PA_S5 = 0;    	
-	
-    for (var idx = 0; idx < PA_filas; idx++) {
-        PA_S5 = PA_S5 + convNro(document.getElementById("PA_Cuota_Pagar_Aprox_" + idx).value);
-    }
-//PA_Cuota_Pagar_Aprox_:6571
-    var cuotas = Calcular_Cuotas_LP_Total();
-    suma1 = convNro(cuotas) + convNro(PA_S5);
-    var suma2 = 0;
-    var LTC_table = document.getElementById("tablaLineaTarjetaCapital");
-    var LTC_filas = LTC_table.rows.length - 1;
-    var PCCT_table = document.getElementById("tablaPrestamoComercial");
-    var PCCT_filas = PCCT_table.rows.length - 1;
-    var PC_table = document.getElementById("tablaPrestamoCancelable");
-    var PC_filas = PC_table.rows.length - 1;
-
-    var S1 = 0;
-    var LTC_S1 = 0;
-    for (var idx = 0; idx < LTC_filas; idx++) {
-        LTC_S1 = LTC_S1 + convNro(document.getElementById("LTC_Costo_Financiero_" + idx).value);
-    }
-	//LTC_Costo_Financiero_:1036
-//LTC_S1:1036	
-    var PCCT_S1 = 0;
-    for (var idx = 0; idx < PCCT_filas; idx++) {
-        PCCT_S1 = PCCT_S1 + convNro(document.getElementById("PCCT_Costo_Financiero_" + idx).value);
-    }
-
-    S1 = LTC_S1 + PCCT_S1;
-//S1:1036
-    var S2 = 0;
-    var PC_S2 = 0;
-    for (var idx = 0; idx < PC_filas; idx++) {
-        PC_S2 = PC_S2 + convNro(document.getElementById("PC_Costo_Financiero_" + idx).value);
-    }
-
-    var i1 = convNro(S1) + convNro(PC_S2);
-//il:1036
-    var i2 = 0;
-
+ 
     var idx = document.getElementById("cant_finan_CP").value;
     for (var i = 1; i <= idx; i++) {
-        i2 = i2 + Calcular_GastFin_CP(i);
+        suma1 =suma1 + Calcular_GastFin_CP(i);
     }
 
-//suma2:1036
-	
-    suma2 = i1 + i2;
-	console.log("cuotas:"+cuotas);
-	console.log("PA_S5:"+PA_S5);
-	console.log("LTC_S1:"+LTC_S1);
-	console.log("PCCT_S1:"+PCCT_S1);
-	
-	console.log("S1:"+S1);
-	console.log("PC_S2:"+PC_S2);
-	
-	console.log("i1:"+i1);
-	console.log("i2:"+i2);
-	console.log("suma1:"+suma1);
-	console.log("suma2:"+suma2);
-	console.log("reactiva:"+Number( document.getElementById("interes_reactiva").value))
-    egp_gastfinan = suma1 + suma2 + Number( document.getElementById("interes_reactiva").value) ;
+
+	egp_gastfinan = convNro(suma1) + Number( document.getElementById("ppm_pyme").value) ;
     document.getElementById("egp_gastfinan").value = egp_gastfinan;
+	
     egp_gastfinan = Number(egp_gastfinan).toFixed(0);
     document.getElementById("egp_gastfinan").innerHTML = Number(egp_gastfinan).toLocaleString('en');
     return convNro(egp_gastfinan);
@@ -2529,7 +2476,7 @@ function Calcular_Resumen() {
     S5 = PA_S5;
 
     var S6 = 0;
-    var TC_S6 = 0;
+ /*   var TC_S6 = 0;
     for (var idx = 0; idx < TC_filas; idx++) {
         TC_S6 = TC_S6 + convNro(document.getElementById("TC_Costo_Aprox_Pagar_" + idx).value);
     }
@@ -2538,8 +2485,8 @@ function Calcular_Resumen() {
         PP_S6 = PP_S6 + convNro(document.getElementById("PP_Cuota_Pagar_Aprox_" + idx).value);
     }
 
-    S6 = convNro(TC_S6) + convNro(PP_S6);
-
+    S6 = convNro(TC_S6) + convNro(PP_S6);*/
+    S6 = convNro(document.getElementById("ppm_persona").value);
     var S7 = 0;
     var LTC_S7 = 0;
     for (var idx = 0; idx < LTC_filas; idx++) {
