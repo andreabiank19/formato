@@ -327,7 +327,7 @@ function calcular_gastop_comercio() {
     Calcular_EEFF();
 }
 function calcular_gastopersonal() {
-    var gasto1 = convNro(document.getElementById("miembros").value) * 360;
+    var gasto1 = convNro(document.getElementById("miembros").value) * 700;
     var gasto2 = convNro(document.getElementById("alquiler").value);
     var gasto3 = convNro(document.getElementById("deuda_personal").value);
     var gasto4 = convNro(document.getElementById("otros_personal").value);
