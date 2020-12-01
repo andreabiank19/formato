@@ -330,8 +330,8 @@ function calcular_gastop_comercio() {
   if(gasto_familiar_provisional<0){
      document.getElementById("egp_gastfam").value=0;document.getElementById("egp_gastfam").innerHTML=0;
   }else{
-     document.getElementById("egp_gastfam").value=gasto_familiar_provisional;
-     document.getElementById("egp_gastfam").innerHTML=gasto_familiar_provisional;
+     document.getElementById("egp_gastfam").value=convNro(gasto_familiar_provisional);
+     document.getElementById("egp_gastfam").innerHTML=convNro(gasto_familiar_provisional);
 
   }
   
@@ -348,8 +348,18 @@ function calcular_gastopersonal() {
     document.getElementById("total_gastpersonal").innerHTML = Number(gasto1 + gasto2 + gasto3 + gasto4).toLocaleString('en');
     document.getElementById("gastos_implicitos").value = Number(gasto1);
     document.getElementById("total_gastpersonal").value = Number(gasto1 + gasto2 + gasto3 + gasto4);
-    document.getElementById("egp_gastfam").innerHTML = Number(gasto1 + gasto2 + gasto3 + gasto4).toLocaleString('en');
-    document.getElementById("egp_gastfam").value = Number(gasto1 + gasto2 + gasto3 + gasto4);
+
+    var gasto_familiar_provisional=convNro(document.getElementById("total_gastpersonal").value)-convNro(document.getElementById("egp_gastop").value)*0.70;
+
+     if(gasto_familiar_provisional<0){
+        document.getElementById("egp_gastfam").value=0;document.getElementById("egp_gastfam").innerHTML=0;
+     }else{
+        document.getElementById("egp_gastfam").value=convNro(gasto_familiar_provisional);
+        document.getElementById("egp_gastfam").innerHTML=convNro(gasto_familiar_provisional);
+
+     }
+   
+   
     Calcular_EEFF();
 }
 
