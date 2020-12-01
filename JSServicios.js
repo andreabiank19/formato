@@ -243,10 +243,21 @@ function calcular_gastop_comercio() {
     document.getElementById("total_gastop_comercio").value = Number(gastop1 + gastop2 + gastop3 + gastop4 + gastop5 + gastop6 + gastop7 + gastop8);
     document.getElementById("egp_gastop").innerHTML = Number(gastop1 + gastop2 + gastop3 + gastop4 + gastop5 + gastop6 + gastop7 + gastop8).toLocaleString('en');
     document.getElementById("egp_gastop").value = Number(gastop1 + gastop2 + gastop3 + gastop4 + gastop5 + gastop6 + gastop7 + gastop8);
+    
+    var gasto_familiar_provisional=convNro(document.getElementById("total_gastpersonal").value)-convNro(document.getElementById("egp_gastop").value)*0.70;
+
+  if(gasto_familiar_provisional<0){
+     document.getElementById("egp_gastfam").value=0;document.getElementById("egp_gastfam").innerHTML=0;
+  }else{
+     document.getElementById("egp_gastfam").value=Number(Math.round(convNro(gasto_familiar_provisional))).toLocaleString('en');
+     document.getElementById("egp_gastfam").innerHTML=Number(convNro(Math.round(gasto_familiar_provisional))).toLocaleString('en');
+
+  }
+    
     Calcular_EGP();
 }
 function calcular_gastopersonal() {
-    var gasto1 = convNro(document.getElementById("miembros").value) * 360;
+    var gasto1 = convNro(document.getElementById("miembros").value) * 700;
     var gasto2 = convNro(document.getElementById("alquiler").value);
     var gasto3 = convNro(document.getElementById("deuda_personal").value);
     var gasto4 = convNro(document.getElementById("otros_personal").value);
@@ -255,8 +266,19 @@ function calcular_gastopersonal() {
     document.getElementById("total_gastpersonal").innerHTML = Number(gasto1 + gasto2 + gasto3 + gasto4).toLocaleString('en');
     document.getElementById("gastos_implicitos").value = Number(gasto1);
     document.getElementById("total_gastpersonal").value = Number(gasto1 + gasto2 + gasto3 + gasto4);
-    document.getElementById("egp_gastfam").innerHTML = Number(gasto1 + gasto2 + gasto3 + gasto4).toLocaleString('en');
-    document.getElementById("egp_gastfam").value = Number(gasto1 + gasto2 + gasto3 + gasto4);
+   
+    var gasto_familiar_provisional=convNro(document.getElementById("total_gastpersonal").value)-convNro(document.getElementById("egp_gastop").value)*0.70;
+
+  if(gasto_familiar_provisional<0){
+     document.getElementById("egp_gastfam").value=0;document.getElementById("egp_gastfam").innerHTML=0;
+  }else{
+     document.getElementById("egp_gastfam").value=Number(Math.round(convNro(gasto_familiar_provisional))).toLocaleString('en');
+     document.getElementById("egp_gastfam").innerHTML=Number(convNro(Math.round(gasto_familiar_provisional))).toLocaleString('en');
+
+  }
+    
+    
+    
     Calcular_EGP();
 }
 function calcular_valor_declarado(idx) {
