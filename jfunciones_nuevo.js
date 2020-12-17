@@ -609,7 +609,7 @@ function Calcular_Ratios() {
     var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
     var porc_cv =  convNro(document.getElementById("porc_cv").value);	
 
-  var rat_pat = (Number( document.getElementById("total_pasivos").value)-Calcular_Activos_CP())*1.0/(Number(document.getElementById("total_activos").value)-Calcular_Activos_CP()-Calcular_Activos_LP());
+  var rat_pat = (Number( document.getElementById("total_pasivo").value)-Calcular_Activos_CP())*1.0/(Number(document.getElementById("total_activo").value)-Calcular_Activos_CP()-Calcular_Activos_LP());
   
 
 var adicional=0;
