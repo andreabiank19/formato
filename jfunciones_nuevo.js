@@ -209,10 +209,16 @@ function EvaluarFiltros0(){
 function EvaluarFiltros1(){
     var estado = true;
     var nroEntidades = convNro(document.getElementById('nroEnt').value);
-    var cobertura = convNro(document.getElementById('CoberturaDeuda').value);
     var tipoCliente = document.getElementById('tipoCliente').value;
    
-  
+  var cobertura = 0;
+    var egp_gastfinan = convNro(document.getElementById("egp_gastfinan").value);
+    var egp_uneta = convNro(document.getElementById("egp_uneta").value);
+    if (egp_gastfinan != 0) {
+        cobertura = (egp_uneta + egp_gastfinan) / egp_gastfinan;
+    }else{
+
+    }
 	
  
 	
@@ -371,6 +377,14 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
       		fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + i).value);
         }
    }
+	var CoberturaDeuda = 0;
+    var egp_gastfinan = convNro(document.getElementById("egp_gastfinan").value);
+    var egp_uneta = convNro(document.getElementById("egp_uneta").value);
+    if (egp_gastfinan != 0) {
+        CoberturaDeuda = (egp_uneta + egp_gastfinan) / egp_gastfinan;
+    }else{
+
+    }
 /*	
    var fin_lp=0;
    var cantlp = document.getElementById("cant_finan_LP").value;
@@ -457,7 +471,13 @@ var adicional=0;
 			 flg_retorno = flg_retorno+"<br> - Buro no permitido";		
 		 }
 	}
-	
+     if(CoberturaDeuda < 1.3){
+	     if(flg_retorno==""){
+			 flg_retorno = "- No cuenta con capacidad de Pago suficiente para cumplir con sus obligaciones.";   
+		 }else{
+			 flg_retorno = flg_retorno+"<br> - No cuenta con capacidad de Pago suficiente para cumplir con sus obligaciones.";   	
+		 }
+    }
     if (edadRL < 25) {
 		if(flg_retorno==""){
 			 flg_retorno = "- El representante no cumple el minimo de edad (25 años)";	
@@ -503,7 +523,6 @@ var adicional=0;
 function EvaluarFiltros1Mensaje(flg_retorno){
     var estado = true;
     var nroEntidades = convNro(document.getElementById('nroEnt').value);
-    var cobertura = convNro(document.getElementById('CoberturaDeuda').value);
     var tipoCliente = document.getElementById('tipoCliente').value;
     var comercial_cp =  convNro(document.getElementById('bg_16').value);
     var comercial_lp =  convNro(document.getElementById('bg_19').value);
@@ -567,9 +586,7 @@ function EvaluarFiltros1Mensaje(flg_retorno){
         }
     }
 	
-    if(cobertura < 1.3){
-        flg_retorno=			"No cuenta con capacidad de Pago suficiente para cumplir con sus obligaciones.";      
-    }
+   
 	
     return flg_retorno;
 }
