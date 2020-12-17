@@ -669,7 +669,7 @@ var adicional=0;
          document.getElementById("dictamen_endeudamiento").innerHTML="Apto";
       }
  
-  google.script.run.grabar_ratios_vinculantes(document.getElementById('idFila').value,document.getElementById("CapitalTrabajo").value,
+  google.script.run.grabar_ratios_vinculantes(document.getElementById('idFila').value,document.getElementById("CapitalTrabajo").innerHTML,
 								  document.getElementById("dictamen_CapitalTrabajo").innerHTML,
     (Number(rat_pat)).toFixed(2),document.getElementById("dictamen_endeudamiento").innerHTML,(Number(cobertura_deuda)).toFixed(2),document.getElementById("dictamen_CoberturaDeuda").innerHTML
      
