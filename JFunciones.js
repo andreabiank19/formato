@@ -72,6 +72,8 @@ function Validar(lista){
 	  document.getElementById("interes_reactiva").value = lista[13];
 	    document.getElementById("ppm_persona").value = lista[16];
 	      document.getElementById("ppm_pyme").value = lista[17];
+	    	      document.getElementById("monto_oferta").value = lista[18];
+
         document.getElementById("finalizado").value = lista[20];
 	    console.log("lista[14]:"+lista[14])
 document.getElementById("flg_aplica").value = lista[14];
@@ -579,17 +581,98 @@ function Calcular_EEFF(){
 }
 function Calcular_Ratios() {
 
-    var TPC = convNro(document.getElementById("total_pasivo_cte").value);
-    var TAC = convNro(document.getElementById("total_activo_cte").value);
-    var bg_5 = convNro(document.getElementById("bg_5").value);
-    var egp_costoven = convNro(document.getElementById("egp_costoven").value);
+ var lista = [];
     var egp_ventas = convNro(document.getElementById("egp_ventas").value);
-    var bg_3 = convNro(document.getElementById("bg_3").value);
-    var bg_17 = convNro(document.getElementById("bg_17").value);
-    var bg_19 = convNro(document.getElementById("bg_19").value);
-    var egp_gastfinan = convNro(document.getElementById("egp_gastfinan").value);
-    var egp_uneta = convNro(document.getElementById("egp_uneta").value);
+    var egp_costoven = convNro(document.getElementById("egp_costoven").value);
 
+    var egp_gastop = convNro(document.getElementById("egp_gastop").value);
+
+    var egp_uoperativa = egp_ventas - egp_costoven - egp_gastop;
+
+    var egp_gastfam = convNro(document.getElementById("egp_gastfam").value);
+   
+    var egp_otrosing = convNro(document.getElementById("egp_otrosing").value);
+
+    var egp_impuestos = convNro(document.getElementById("egp_impuestos").value);
+    var egp_gastfinan = Number( document.getElementById("ppm_pyme").value) ;
+
+    var egp_uneta = egp_uoperativa - egp_gastfinan - egp_gastfam + egp_otrosing - egp_impuestos;	
+	
+
+
+  if(egp_gastfinan>0){
+   var cobertura_deuda = (egp_uneta)/(egp_gastfinan)+1; //31.11283185840708
+      
+  }else{
+     var cobertura_deuda = (egp_uneta)/1+1; 
+  }	
+    var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
+    var porc_cv =  convNro(document.getElementById("porc_cv").value);	
+
+  var rat_pat = (Number( document.getElementById("total_pasivos").value)-Calcular_Activos_CP())*1.0/(Number(document.getElementById("total_activos").value)-Calcular_Activos_CP()-Calcular_Activos_LP());
+  
+
+var adicional=0;
+ if(convNro(document.getElementById("flg_aplica").value)==1){
+   adicional=egp_costoven*2+egp_gastop*2
+ }	
+
+ var dimensionamiento =porc_cv*(egp_costoven+adicional)-(proveedores+convNro(document.getElementById("bg_16").value)-Calcular_Activos_CP() )
+
+	
+	
+	
+ document.getElementById("endeudamiento").value=(Number(rat_pat)*100).toFixed(2)+"%";
+ document.getElementById("CoberturaDeuda").value=(Number(cobertura_deuda)).toFixed(2);
+ document.getElementById("CapitalTrabajo").value=Math.round(Number(dimensionamiento)).toLocaleString();
+      if(Number(dimensionamiento)<10000){
+          document.getElementById("dictamen_CapitalTrabajo").innerHTML="Atendido en corto plazo";
+      }
+      else{
+          if(Number(document.getElementById("monto_oferta").value)>0){ //aprobado != renov
+            if(Number(dimensionamiento)>document.getElementById("monto_oferta").value){
+            
+                document.getElementById("CapitalTrabajo").value=Number(document.getElementById("monto_oferta").value);
+                
+                if(Number(dimensionamiento)>300000){
+                 document.getElementById("CapitalTrabajo").value=300000;
+                }            
+               
+               
+            }else{
+             document.getElementById("CapitalTrabajo").value=Number(dimensionamiento);
+            }
+            
+         }else{ //bien es renovacion o pre aprobado
+            document.getElementById("CapitalTrabajo").value=Number(dimensionamiento);
+
+            if(Number(dimensionamiento)>300000){
+                 document.getElementById("CapitalTrabajo").value=300000;
+             }            
+               
+            
+         
+         }
+          document.getElementById("dictamen_CapitalTrabajo").innerHTML="Apto";
+      }
+       
+       
+       if(Number(cobertura_deuda)<1.3){
+        document.getElementById("dictamen_CoberturaDeuda").innerHTML="Insuficiente";
+      }else{
+         document.getElementById("dictamen_CoberturaDeuda").innerHTML="Apto";
+      }
+       
+      if(Number(rat_pat)>Number(rat_pat_max)){
+        document.getElementById("dictamen_endeudamiento").innerHTML="Sobreendeudado";
+      }else{
+         document.getElementById("dictamen_endeudamiento").innerHTML="Apto";
+      }
+ 
+	
+/*	
+	
+	
     var LiquidezCTE = TAC / TPC;
     if (TPC == 0) {
         LiquidezCTE = 0;
@@ -650,7 +733,7 @@ function Calcular_Ratios() {
     document.getElementById("DiasPago").value = Number(DiasPago);
     document.getElementById("CicloNegocio").value = Number(CicloNegocio);
     document.getElementById("PayBack").value = Number(payback);
-    document.getElementById("CoberturaDeuda").value = Number(CoberturaDeuda);
+    */
 }
 function calcTime(offset) {
     var d = new Date();
