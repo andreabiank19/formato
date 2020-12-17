@@ -594,7 +594,8 @@ function Calcular_Ratios() {
     var egp_otrosing = convNro(document.getElementById("egp_otrosing").value);
 
     var egp_impuestos = convNro(document.getElementById("egp_impuestos").value);
-    var egp_gastfinan = Number( document.getElementById("ppm_pyme").value) ;
+    var egp_gastfinan = convNro( document.getElementById("ppm_pyme").value) ;
+    var proveedores =  convNro(document.getElementById("bg_17").value)  ;
 
     var egp_uneta = egp_uoperativa - egp_gastfinan - egp_gastfam + egp_otrosing - egp_impuestos;	
 	
