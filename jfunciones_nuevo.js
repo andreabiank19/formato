@@ -215,7 +215,8 @@ function EvaluarFiltros1(){
     var egp_gastfinan = convNro(document.getElementById("egp_gastfinan").value);
     var egp_uneta = convNro(document.getElementById("egp_uneta").value);
     if (egp_gastfinan != 0) {
-        cobertura = (egp_uneta + egp_gastfinan) / egp_gastfinan;
+                CoberturaDeuda =  convNro(document.getElementById("CoberturaDeuda").value);
+
     }else{
 
     }
@@ -381,7 +382,7 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
     var egp_gastfinan = convNro(document.getElementById("egp_gastfinan").value);
     var egp_uneta = convNro(document.getElementById("egp_uneta").value);
     if (egp_gastfinan != 0) {
-        CoberturaDeuda = (egp_uneta + egp_gastfinan) / egp_gastfinan;
+        CoberturaDeuda =  convNro(document.getElementById("CoberturaDeuda").value);
     }else{
 
     }
@@ -598,27 +599,22 @@ function Calcular_EEFF(){
 }
 function Calcular_Ratios() {
 
-    var egp_ventas = convNro(document.getElementById("egp_ventas").value);
     var egp_costoven = convNro(document.getElementById("egp_costoven").value);
 
     var egp_gastop = convNro(document.getElementById("egp_gastop").value);
 
-    var egp_uoperativa = egp_ventas - egp_costoven - egp_gastop;
 
-    var egp_gastfam = convNro(document.getElementById("egp_gastfam").value);
-   
-    var egp_otrosing = convNro(document.getElementById("egp_otrosing").value);
 
-    var egp_impuestos = convNro(document.getElementById("egp_impuestos").value);
-    var egp_gastfinan = convNro( document.getElementById("ppm_pyme").value) ;
+
+    var egp_gastfinan = convNro( document.getElementById("egp_gastfinan").value) ;
     var proveedores =  convNro(document.getElementById("bg_17").value)  ;
 
-    var egp_uneta = egp_uoperativa - egp_gastfinan - egp_gastfam + egp_otrosing - egp_impuestos;	
+    var egp_uneta =  convNro( document.getElementById("egp_uneta").value) ;
 	
 
 
   if(egp_gastfinan>0){
-   var cobertura_deuda = (egp_uneta)/(egp_gastfinan)+1; //31.11283185840708
+   var cobertura_deuda = (egp_uneta/egp_gastfinan)+1; //31.11283185840708
       
   }else{
      var cobertura_deuda = (egp_uneta)/1+1; 
@@ -626,7 +622,7 @@ function Calcular_Ratios() {
     var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
     var porc_cv =  convNro(document.getElementById("porc_cv").value);	
 
-  var rat_pat = (Number( document.getElementById("total_pasivo").value)-Calcular_Activos_CP())*1.0/(Number(document.getElementById("total_activo").value)-Calcular_Activos_CP()-Calcular_Activos_LP());
+  var rat_pat = (Number( document.getElementById("total_pasivo").value))*1.0/(Number(document.getElementById("total_activo").value));
   
 
 var adicional=0;
@@ -634,13 +630,14 @@ var adicional=0;
    adicional=egp_costoven*2+egp_gastop*2
  }	
 
- var dimensionamiento =porc_cv*(egp_costoven+adicional)-(proveedores+convNro(document.getElementById("bg_16").value)-Calcular_Activos_CP() )
+ var dimensionamiento =porc_cv*(egp_costoven+adicional)-(proveedores+convNro(document.getElementById("bg_16").value))
 
 	
 	
 	
  document.getElementById("endeudamiento").innerHTML=(Number(rat_pat)*100).toFixed(2)+"%";
  document.getElementById("CoberturaDeuda").innerHTML=(Number(cobertura_deuda)).toFixed(2);
+	 document.getElementById("CoberturaDeuda").value=(Number(cobertura_deuda))
  document.getElementById("CapitalTrabajo").innerHTML=Math.round(Number(dimensionamiento)).toLocaleString();
       if(Number(dimensionamiento)<10000){
           document.getElementById("dictamen_CapitalTrabajo").innerHTML="Atendido en corto plazo";
