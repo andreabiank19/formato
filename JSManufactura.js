@@ -134,6 +134,7 @@ function Calcular_Ingreso_Manufactura() {
     Calcular_Informalidad();
     Calcular_Margen_Utilidad_Bruta();
     Calcular_EGP();
+    Calcular_Ratios();
 }
 
 function EliminarInsumo() {
