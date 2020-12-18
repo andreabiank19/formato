@@ -182,6 +182,7 @@ function Calcular_Ingreso_Manufactura() {
     Calcular_Informalidad();
     Calcular_Margen_Utilidad_Bruta();
     Calcular_EGP();
+    Calcular_EEFF();
 }
 function Calcular_Costo_Venta() {
     var costo1 = convNro(document.getElementById("costo_venta_op").value);
