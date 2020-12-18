@@ -632,7 +632,7 @@ var adicional=0;
 
  var dimensionamiento =Math.round(porc_cv*(egp_costoven+adicional)-(proveedores+convNro(document.getElementById("bg_16").value)))
 
-	
+	console.log("dimensionamiento:"+dimensionamiento)
 	
 	
  document.getElementById("endeudamiento").innerHTML=(Number(rat_pat)*100).toFixed(2)+"%";
