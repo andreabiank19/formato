@@ -599,7 +599,7 @@ function Calcular_EEFF(){
 }
 function Calcular_Ratios() {
 
-    var egp_costoven = convNro(document.getElementById("egp_costoven").value);
+    var egp_costoven = Number(convNro(document.getElementById("egp_costoven").value))*12;
 
     var egp_gastop = convNro(document.getElementById("egp_gastop").value);
 
@@ -621,8 +621,11 @@ function Calcular_Ratios() {
   }	
     var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
     var porc_cv =  convNro(document.getElementById("porc_cv").value);	
-
-  var rat_pat = (Number( document.getElementById("total_pasivo").value))*1.0/(Number(document.getElementById("total_activo").value));
+  var activo=Number(document.getElementById("total_activo").value);
+	if(activo=0){
+	  activo=1;
+	}
+  var rat_pat = (Number( document.getElementById("total_pasivo").value))*1.0/(activo);
   
 
 var adicional=0;
@@ -631,6 +634,8 @@ var adicional=0;
  }	
 
  var dimensionamiento =Math.round(porc_cv*(egp_costoven+adicional)-(proveedores+convNro(document.getElementById("bg_16").value)))
+	console.log("porc:"+porc_cv*(egp_costoven+adicional))
+	console.log("provee:"+(proveedores+convNro(document.getElementById("bg_16").value)) )
 
 	console.log("dimensionamiento:"+dimensionamiento)
 	
