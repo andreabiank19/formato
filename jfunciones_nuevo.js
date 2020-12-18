@@ -599,7 +599,7 @@ function Calcular_EEFF(){
 }
 function Calcular_Ratios() {
 
-    var egp_costoven = Number(convNro(document.getElementById("egp_costoven").value))*12;
+    var egp_costoven = Number(convNro(document.getElementById("egp_costoven").value));
 
     var egp_gastop = convNro(document.getElementById("egp_gastop").value);
 
@@ -633,14 +633,14 @@ var adicional=0;
    adicional=egp_costoven*2+egp_gastop*2
  }	
 
- var dimensionamiento =Math.round(porc_cv*(egp_costoven+adicional)-(proveedores+convNro(document.getElementById("bg_16").value)))
+ var dimensionamiento =Math.round(porc_cv*(egp_costoven*12+adicional)-(proveedores+convNro(document.getElementById("bg_16").value)))
 	console.log("porc:"+porc_cv*(egp_costoven+adicional))
 	console.log("provee:"+(proveedores+convNro(document.getElementById("bg_16").value)) )
 
 	console.log("dimensionamiento:"+dimensionamiento)
 	
 	
- document.getElementById("endeudamiento").innerHTML=(Number(rat_pat)*100).toFixed(2)+"%";
+ document.getElementById("endeudamiento").innerHTML=(Number(rat_pat)*100).toFixed(0)+"%";
  document.getElementById("CoberturaDeuda").innerHTML=(Number(cobertura_deuda)).toFixed(2);
 	 document.getElementById("CoberturaDeuda").value=(Number(cobertura_deuda))
  document.getElementById("CapitalTrabajo").innerHTML=(Number(dimensionamiento)).toLocaleString();
