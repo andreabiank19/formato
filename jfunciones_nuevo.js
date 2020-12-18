@@ -623,7 +623,7 @@ function Calcular_Ratios() {
     var porc_cv =  convNro(document.getElementById("porc_cv").value);	
   var activo=Number(document.getElementById("total_activo").value);
 	if(activo=0){
-	  activo=1;
+	  activo=Number( document.getElementById("total_pasivo").value);
 	}
   var rat_pat = (Number( document.getElementById("total_pasivo").value))*1.0/(activo);
   
