@@ -622,11 +622,15 @@ function Calcular_Ratios() {
     var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
     var porc_cv =  convNro(document.getElementById("porc_cv").value);	
   var activo=Number(document.getElementById("total_activo").value);
+	  	console.log("activo1:"+activo)
+
 	if(activo=0){
 	  activo=Number( document.getElementById("total_pasivo").value);
 	}
   var rat_pat = (Number( document.getElementById("total_pasivo").value))*1.0/(activo);
-  
+  	console.log("activo:"+activo)
+  	console.log("rat_pat:"+rat_pat)
+
 
 var adicional=0;
  if(convNro(document.getElementById("flg_aplica").value)==1){
@@ -638,7 +642,8 @@ var adicional=0;
 	console.log("provee:"+(proveedores+convNro(document.getElementById("bg_16").value)) )
 
 	console.log("dimensionamiento:"+dimensionamiento)
-	
+		console.log("rat_pat:"+rat_pat)
+
 	
  document.getElementById("endeudamiento").innerHTML=(Number(rat_pat)*100).toFixed(0)+"%";
  document.getElementById("CoberturaDeuda").innerHTML=(Number(cobertura_deuda)).toFixed(2);
