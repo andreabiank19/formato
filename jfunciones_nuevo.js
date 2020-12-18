@@ -625,7 +625,7 @@ function Calcular_Ratios() {
 	  	console.log("activo1:"+activo)
   	console.log(convNro( document.getElementById("total_pasivo").innerHTML))
 
-	if(activo=0){
+	if(activo==0){
 	  activo=convNro( document.getElementById("total_pasivo").innerHTML);
 	}
   var rat_pat = (convNro( document.getElementById("total_pasivo").innerHTML))*1.0/(activo);
