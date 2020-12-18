@@ -630,7 +630,7 @@ var adicional=0;
    adicional=egp_costoven*2+egp_gastop*2
  }	
 
- var dimensionamiento =porc_cv*(egp_costoven+adicional)-(proveedores+convNro(document.getElementById("bg_16").value))
+ var dimensionamiento =Math.round(porc_cv*(egp_costoven+adicional)-(proveedores+convNro(document.getElementById("bg_16").value)))
 
 	
 	
@@ -638,7 +638,7 @@ var adicional=0;
  document.getElementById("endeudamiento").innerHTML=(Number(rat_pat)*100).toFixed(2)+"%";
  document.getElementById("CoberturaDeuda").innerHTML=(Number(cobertura_deuda)).toFixed(2);
 	 document.getElementById("CoberturaDeuda").value=(Number(cobertura_deuda))
- document.getElementById("CapitalTrabajo").innerHTML=Math.round(Number(dimensionamiento)).toLocaleString();
+ document.getElementById("CapitalTrabajo").innerHTML=(Number(dimensionamiento)).toLocaleString();
       if(Number(dimensionamiento)<10000){
           document.getElementById("dictamen_CapitalTrabajo").innerHTML="Atendido en corto plazo";
       }
@@ -646,22 +646,22 @@ var adicional=0;
           if(Number(document.getElementById("monto_oferta").value)>0){ //aprobado != renov
             if(Number(dimensionamiento)>document.getElementById("monto_oferta").value){
             
-                document.getElementById("CapitalTrabajo").innerHTML=Number(document.getElementById("monto_oferta").value);
+                document.getElementById("CapitalTrabajo").innerHTML=Number(document.getElementById("monto_oferta").value).toLocaleString();
                 
                 if(Number(dimensionamiento)>300000){
-                 document.getElementById("CapitalTrabajo").innerHTML=300000;
+                 document.getElementById("CapitalTrabajo").innerHTML=Number(300000).toLocaleString();
                 }            
                
                
             }else{
-             document.getElementById("CapitalTrabajo").innerHTML=Number(dimensionamiento);
+             document.getElementById("CapitalTrabajo").innerHTML=Number(dimensionamiento).toLocaleString();
             }
             
          }else{ //bien es renovacion o pre aprobado
-            document.getElementById("CapitalTrabajo").innerHTML=Number(dimensionamiento);
+            document.getElementById("CapitalTrabajo").innerHTML=Number(dimensionamiento).toLocaleString();
 
             if(Number(dimensionamiento)>300000){
-                 document.getElementById("CapitalTrabajo").innerHTML=300000;
+                 document.getElementById("CapitalTrabajo").innerHTML=Number(300000).toLocaleString();
              }            
                
             
