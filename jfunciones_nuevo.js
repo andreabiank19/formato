@@ -215,7 +215,7 @@ function EvaluarFiltros1(){
     var egp_gastfinan = convNro(document.getElementById("egp_gastfinan").value);
     var egp_uneta = convNro(document.getElementById("egp_uneta").value);
     if (egp_gastfinan != 0) {
-                CoberturaDeuda =  convNro(document.getElementById("CoberturaDeuda").value);
+                cobertura =  convNro(document.getElementById("CoberturaDeuda").value);
 
     }else{
 
@@ -261,28 +261,7 @@ function EvaluarFiltros2(){
     var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
      //ratio de costo de venta
 	    
-   var fin_cp=0;
-   var cant = document.getElementById("cant_finan_CP").value;
-   for (var i = 1; i <= cant; i++) {
-	if( convNro(document.getElementById("Tipo_Prod_CP_" + i).value)==6){
-      		fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + i).value);
-        }
-   }
-/*	
-   var fin_lp=0;
-   var cantlp = document.getElementById("cant_finan_LP").value;
-   for (var i = 1; i <= cantlp; i++) {
-	   if( convNro(document.getElementById("Tipo_Prod_LP_" + i).value)==3){
-      		fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + i).value);
-	  }
-   }
-	
-   var precio_lp=0;
-
-   for (var i = 1; i <= cantlp; i++) {
-      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + i).value);
-   }
-	*/
+  
  var rat_pat =   convNro(document.getElementById("total_pasivo").value) / total_activos
   
   if(rat_pat>=0 && rat_pat<=rat_pat_max){
@@ -371,13 +350,7 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
     var rat_pat_max = convNro(document.getElementById("porc_pat").value);	
      //ratio de costo de venta
 	    
-   var fin_cp=0;
-   var cant = document.getElementById("cant_finan_CP").value;
-   for (var i = 1; i <= cant; i++) {
-	if( convNro(document.getElementById("Tipo_Prod_CP_" + i).value)==6){
-      		fin_cp = fin_cp + convNro(document.getElementById("Finan_CP_" + i).value);
-        }
-   }
+ 
 	var CoberturaDeuda = 0;
     var egp_gastfinan = convNro(document.getElementById("egp_gastfinan").value);
     var egp_uneta = convNro(document.getElementById("egp_uneta").value);
@@ -386,21 +359,7 @@ var comercial_cp =  convNro(document.getElementById('bg_16').value);
     }else{
 
     }
-/*	
-   var fin_lp=0;
-   var cantlp = document.getElementById("cant_finan_LP").value;
-   for (var i = 1; i <= cantlp; i++) {
-	   if( convNro(document.getElementById("Tipo_Prod_LP_" + i).value)==3){
-      		fin_lp = fin_lp + convNro(document.getElementById("Finan_LP_" + i).value);
-	  }
-   }
-	
-   var precio_lp=0;
 
-   for (var i = 1; i <= cantlp; i++) {
-      precio_lp = precio_lp + convNro(document.getElementById("Precio_Venta_" + i).value);
-   }
-	*/
  var rat_pat =  convNro(document.getElementById("total_pasivo").value) / total_activos
   
   if(rat_pat>=0 && rat_pat<=rat_pat_max){
@@ -575,6 +534,14 @@ function EvaluarFiltros1Mensaje(flg_retorno){
 			flg_retorno=	"El cliente supera el número de entidades con deuda";            			
        
         }
+    }
+  var cobertura=0;
+  var egp_gastfinan = convNro(document.getElementById("egp_gastfinan").value);
+
+   if (egp_gastfinan != 0) {
+        cobertura =  convNro(document.getElementById("CoberturaDeuda").value);
+    }else{
+
     }
 	
     if(cobertura == 1.3){
