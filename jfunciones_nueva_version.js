@@ -895,20 +895,19 @@ function Agregar_Financimiento_CP() {
                          '       <td>Tipo de producto</td>' +
                          '       <td>' +
                          '         <select class="form-control" id="Tipo_Prod_CP_' + idx + '" onchange="Calcular_Propuestas_CP();">' +
-                         '           <option value=""></option>' +
-                         '           <option value="Financiamiento de Importación">Financiamiento de Importación</option>' +
-                         '           <option value="Financiamiento de Exportación">Financiamiento de Exportación</option>' +
-                         '           <option value="Préstamo para capital de trabajo">Préstamo para capital de trabajo</option>' +
-                         '           <option value="Línea Préstamo para capital de trabajo">Línea Préstamo para capital de trabajo</option>' +
-                         '           <option value="Tarjeta capital de trabajo">Tarjeta capital de trabajo</option>' +
-                         '           <!--<option value="Descuento de letra/factura negociable">Descuento de letra/factura negociable</option>' +
-                         '           <option value="Tarjeta Empresarial">Tarjeta empresarial</option>' +
-                         '           <option value="Préstamo para adquisición de bienes muebles pequeños">Préstamo para adquisición de bienes muebles pequeños</option>' +
-                         '           --><option value="Subrogación de deuda">Subrogación de deuda</option><!--' +
-                         '           <option value="Incremento de línea de TKT">Incremento de línea de TKT</option>' +
-                         '           <option value="Incremento de línea de T/C">Incremento de línea de T/C empresarial</option>' +
-                         '           <option value="Otro">Otro</option>-->' +
-	                 '           <option value="Renovación de Linea">Renovación de Linea</option>' +
+                         '           <option value="Incremento de Tarjeta Capital de Trabajo">Incremento de Tarjeta Capital de Trabajo</option>' +
+                         '           <option value="Línea Comex">Línea Comex</option>' +
+                         '           <option value="Línea de Dcto de Letras">Línea de Dcto de Letras</option>' +
+                         '           <option value="Línea Gracia">Línea Gracia</option>' +
+
+                         '           <option value="Nueva Tarjeta Capital de Trabajo">Nueva Tarjeta Capital de Trabajo</option>' +
+                         '           <option value="Subrogación TKT">Subrogación TKT</option>' +
+                         '           <option value="Subrogación LPCOM">Subrogación LPCOM</option>' +
+                         '           <option value="Subrogación PCOM">Subrogación PCOM</option>' +
+                         '           <option value="Préstamo Comercial">Préstamo Comercial</option>' +
+						 
+	                     '           <option value="Renovación de Línea PCOM">Renovación de Línea PCOM</option>' +
+						 
                          '         </select>' +
                          '       </td>' +
                          '     </tr>' +
@@ -2983,42 +2982,38 @@ function CompletarCP(lista) {
         var dato = data[i];
         if (codigo.indexOf("Tipo_Prod_CP_") != -1) {
             var index = 0;
-            if (dato == "Financiamiento de Importación") {
+            if (dato == "Incremento de Tarjeta Capital de Trabajo") {
                 index = 1;
-            } else if (dato == "Financiamiento de Exportación") {
+            } else if (dato == "Línea Comex") {
                 index = 2;
             } else if (dato == "Préstamo para capital de trabajo") {
                 index = 3;
-            } else if (dato == "Línea Préstamo para capital de trabajo") {
+            } else if (dato == "Línea de Dcto de Letras") {
                 index = 4;
                 //index = 1;
-            } else if (dato == "Tarjeta capital de trabajo") {
+            } else if (dato == "Línea Gracia") {
                 index = 5;
                 //index = 1;
-            } else if (dato == "Descuento de letra/factura negociable") {
+            } else if (dato == "Nueva Tarjeta Capital de Trabajo") {
                 index = 6;
-            } else if (dato == "Tarjeta Empresarial") {
+            } else if (dato == "Subrogación TKT") {
                 index = 7;
-            } else if (dato == "Préstamo para adquisición de bienes muebles pequeños") {
+            } else if (dato == "Subrogación LPCOM") {
                 index = 8;
-            } else if (dato == "Subrogación de deuda") {
+            } else if (dato == "Subrogación PCOM") {
                 index = 6;
-            } else if (dato == "Incremento de línea de TKT") {
+            } else if (dato == "Préstamo Comercial") {
                 index = 7;
-            } else if (dato == "Incremento de línea de T/C") {
+            } else if (dato == "Renovación de Línea PCOM") {
                 index = 8;
-            } else if (dato == "Otro") {
-                index = 12;
-            }
-            else if (dato == "Renovación de Linea") {
-                index = 13;
-            }
+            } 
 		document.getElementById(codigo).selectedIndex = index;
         } else {
             document.getElementById(codigo).value = data[i];
             document.getElementById(codigo).innerHTML = data[i];
         }
     }
+
     Calcular_Propuestas_CP();
 }
 function CompletarPI(lista) {
