@@ -904,7 +904,7 @@ function Agregar_Financimiento_CP() {
                          '           <option value="Subrogación TKT">Subrogación TKT</option>' +
                          '           <option value="Subrogación LPCOM">Subrogación LPCOM</option>' +
                          '           <option value="Subrogación PCOM">Subrogación PCOM</option>' +
-                         '           <option value="Préstamo Comercial">Préstamo Comercial</option>' +
+                         '           <option value="Préstamo para capital de trabajo">Préstamo para capital de trabajo</option>' +
 						 
 	                     '           <option value="Renovación de Línea PCOM">Renovación de Línea PCOM</option>' +
 						 
@@ -3002,7 +3002,7 @@ function CompletarCP(lista) {
                 index = 8;
             } else if (dato == "Subrogación PCOM") {
                 index = 6;
-            } else if (dato == "Préstamo Comercial") {
+            } else if (dato == "Préstamo para capital de trabajo") {
                 index = 7;
             } else if (dato == "Renovación de Línea PCOM") {
                 index = 8;
