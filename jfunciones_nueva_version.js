@@ -826,7 +826,7 @@ function Agregar_Financimiento_LP() {
             '       <option value="Leasing Inmobiliario">Leasing Inmobiliario</option>' +
             '       <!--<option value="Préstamo para adquisición de inmueble">Préstamo para adquisición de inmueble</option>' +
             '       <option value="Préstamo para adquisición de bienes muebles">Préstamo para adquisición de bienes muebles</option>' +
-            '       --><option value="Subrogación de deuda">Subrogación de deuda</option><!--' +
+            '       --><option value="Subrogación LP">Subrogación LP</option><!--' +
             '       <option value="Otro">Otro</option>-->' +
             '     </select>' +
             '   </td>' +
