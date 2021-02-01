@@ -141,7 +141,7 @@ document.getElementById("flg_aplica").value = lista[14];
 		console.log("lista[11]:"+lista[11])
 	   if(lista[11] ==0){	
            
-	    mymodal.find('.modal-body').text("Debido a la coyuntura actual, las visitas de campo quedan suspendidas hasta nuevo aviso. Si la visita realizada es previo al estado de emergencia, se deberá enviar correo al Equipo de Riesgos-Campañas para evaluar el caso");
+	    mymodal.find('.modal-body').text("Debido a la coyuntura actual, las visitas de campo quedan suspendidas hasta nuevo aviso. Si la visita realizada es previo al estado de emergencia que inició el 31/01, se deberá enviar correo al Equipo de Riesgos-Campañas para evaluar el caso");
             mymodal.modal('show');
 	    var bloqueo = document.getElementById("bloqueo");
 	    bloqueo.disabled = true;
