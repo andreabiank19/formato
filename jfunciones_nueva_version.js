@@ -90,6 +90,7 @@ document.getElementById("flg_aplica").value = lista[14];
             var lp = datos[1];
             CompletarLP(lp);
             var cp = datos[2];
+		console.log("datos:"+cp)
             CompletarCP(cp);
             var patInm = datos[3];
             CompletarPI(patInm);
