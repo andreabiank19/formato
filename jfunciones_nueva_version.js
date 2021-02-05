@@ -1090,7 +1090,8 @@ function Calcular_Propuestas_CP() {
 		document.getElementById("Tipo_Prod_CP_" + i).setAttribute('value', Tipo_Prod);
 		var vIndex = document.getElementById("Tipo_Prod_CP_" + i).selectedIndex;
 		document.getElementById("Tipo_Prod_CP_" + i).setAttribute('selectedIndex', vIndex);
-
+ console.log("vIndex:"+vIndex);
+		     console.log("Tipo_Prod_CP_:"+"Tipo_Prod_CP_" + i);
 		Calcular_Tasa_Mensual_CP(i);
 		Calcular_Cuota_CP(i);
 		Calcular_GastFin_CP(i);
