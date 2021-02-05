@@ -904,7 +904,7 @@ function Agregar_Financimiento_CP() {
                          '           <option value="Línea Comex">Línea Comex</option>' +
                          '           <option value="Línea de Dcto de Letras">Línea de Dcto de Letras</option>' +
                          '           <option value="Línea Gracia">Línea Gracia</option>' +
-
+                         '           <option value="Línea Préstamo para capital de trabajo">Línea Préstamo para capital de trabajo</option>' +
                          '           <option value="Nueva Tarjeta Capital de Trabajo">Nueva Tarjeta Capital de Trabajo</option>' +
                          '           <option value="Subrogación TKT">Subrogación TKT</option>' +
                          '           <option value="Subrogación LPCOM">Subrogación LPCOM</option>' +
@@ -2999,18 +2999,21 @@ function CompletarCP(lista) {
             } else if (dato == "Línea Gracia") {
                 index = 5;
                 //index = 1;
+            } else if (dato == "Línea Préstamo para capital de trabajo") {
+                index = 6;
+                //index = 1;
             } else if (dato == "Nueva Tarjeta Capital de Trabajo") {
-                index = 6;
+                index = 7;
             } else if (dato == "Subrogación TKT") {
-                index = 7;
+                index = 8;
             } else if (dato == "Subrogación LPCOM") {
-                index = 8;
+                index = 9;
             } else if (dato == "Subrogación PCOM") {
-                index = 6;
+                index = 10;
             } else if (dato == "Préstamo para capital de trabajo") {
-                index = 7;
+                index = 11;
             } else if (dato == "Renovación de Línea PCOM") {
-                index = 8;
+                index = 12;
             } 
 		document.getElementById(codigo).selectedIndex = index;
         } else {
