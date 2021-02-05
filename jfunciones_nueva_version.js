@@ -2977,12 +2977,14 @@ function CompletarLP(lista) {
 }
 function CompletarCP(lista) {
     var cantidad = lista[0];
-
+console.log("tamanio:"+lista.length)
     for (var i = 0; i < cantidad; i++) {
         Agregar_Financimiento_CP();
     }
+	console.log("lista[2]:"+lista[2])
     var codigos = lista[1];
     var data = lista[2];
+	console.log("lista2:"+data)
     for (var i = 0; i < codigos.length; i++) {
         var codigo = codigos[i];
         var dato = data[i];
