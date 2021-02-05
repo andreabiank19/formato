@@ -89,6 +89,7 @@ document.getElementById("flg_aplica").value = lista[14];
             //Propuesta de Financiamiento
             var lp = datos[1];
             CompletarLP(lp);
+		console.log("datos[2]:"+datos[2])
             var cp = datos[2];
             CompletarCP(cp);
             var patInm = datos[3];
@@ -122,7 +123,7 @@ document.getElementById("flg_aplica").value = lista[14];
             bloqueo.disabled = true;
 			
 			if(dictamen=="Califica"){
-                              
+                              console.log("producto:"+document.getElementById("Tipo_Prod_CP_" + i).value)
                                 var i=1;
                                while (i <= Number(document.getElementById("cant_finan_CP").value) ) {
                                      google.script.run.withSuccessHandler(obtener_consideraciones).obtener_descripcion_producto(document.getElementById("Tipo_Prod_CP_" + i).value);
