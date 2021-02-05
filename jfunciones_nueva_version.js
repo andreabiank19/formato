@@ -827,7 +827,7 @@ function Agregar_Financimiento_LP() {
             '   <td>Tipo de producto</td>' +
             '   <td colspan="2">' +
             '     <select class="form-control" id="Tipo_Prod_LP_' + idx + '" onchange="Calcular_Propuestas_LP();">' +
-            '       <option value="0"></option>' +
+
             '       <option value="Leasing Mobiliario">Leasing Mobiliario</option>' +
             '       <option value="Leasing Inmobiliario">Leasing Inmobiliario</option>' +
             '       <!--<option value="Préstamo para adquisición de inmueble">Préstamo para adquisición de inmueble</option>' +
@@ -2961,13 +2961,13 @@ function CompletarLP(lista) {
         var codigo = codigos[i];
         var dato = data[i];
         if (codigo.indexOf("Tipo_Prod_LP_") != -1) {
-            var index = 0;
+           
             if (dato == "Leasing Mobiliario") {
-                index = 1;
+                index = 0;
             } else if (dato == "Leasing Inmobiliario") {
-                index = 2;
+                index = 1;
             } else if (dato == "Subrogación de deuda") {
-                index = 3;
+                index = 2;
             }document.getElementById(codigo).selectedIndex = index;
         } else {
             document.getElementById(codigo).value = data[i];
@@ -2992,34 +2992,31 @@ console.log("tamanio:"+lista.length)
         var codigo = codigos[i];
         var dato = data[i];
         if (codigo.indexOf("Tipo_Prod_CP_") != -1) {
-            var index = 0;
+            var index =0;
             if (dato == "Incremento de Tarjeta Capital de Trabajo") {
-                index = 1;
+                index = 0;
             } else if (dato == "Línea Comex") {
+                index = 1;
+            } else if (dato == "Línea de Dcto de Letras") { 
                 index = 2;
-            } else if (dato == "Préstamo para capital de trabajo") {
+            }  else if (dato == "Línea Gracia") {
                 index = 3;
-            } else if (dato == "Línea de Dcto de Letras") {
-                index = 4;
-                //index = 1;
-            } else if (dato == "Línea Gracia") {
-                index = 5;
                 //index = 1;
             } else if (dato == "Línea Préstamo para capital de trabajo") {
-                index = 6;
+                index = 4;
                 //index = 1;
             } else if (dato == "Nueva Tarjeta Capital de Trabajo") {
-                index = 7;
+                index = 5;
             } else if (dato == "Subrogación TKT") {
-                index = 8;
+                index = 6;
             } else if (dato == "Subrogación LPCOM") {
-                index = 9;
+                index = 7;
             } else if (dato == "Subrogación PCOM") {
-                index = 10;
+                index = 8;
             } else if (dato == "Préstamo para capital de trabajo") {
-                index = 11;
+                index = 9;
             } else if (dato == "Renovación de Línea PCOM") {
-                index = 12;
+                index = 10;
             } 
 		document.getElementById(codigo).selectedIndex = index;
         } else {
