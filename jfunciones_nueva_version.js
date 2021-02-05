@@ -2985,6 +2985,8 @@ console.log("tamanio:"+lista.length)
     var codigos = lista[1];
     var data = lista[2];
 	console.log("lista2:"+data)
+	console.log("codigos:"+codigos)
+	console.log("length:"+codigos.length)
     for (var i = 0; i < codigos.length; i++) {
         var codigo = codigos[i];
         var dato = data[i];
@@ -3023,8 +3025,12 @@ console.log("tamanio:"+lista.length)
             document.getElementById(codigo).value = data[i];
             document.getElementById(codigo).innerHTML = data[i];
         }
+	    
+	    console.log("index:"+index)
     }
-
+	console.log("cant_finan_CP:"+document.getElementById("cant_finan_CP").value)
+       	console.log("codigo:"+codigo)
+console.log("codigo2:"+document.getElementById(codigo).value)
     Calcular_Propuestas_CP();
 }
 function CompletarPI(lista) {
