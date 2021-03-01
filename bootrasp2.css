@@ -2565,7 +2565,7 @@ output {
 .form-control {
   display: block;
   width: 100%;
-  height: 44px;
+  height: 50;
   padding: 6px 10px;
   
   line-height: 1.42857143;
@@ -2582,8 +2582,7 @@ output {
 }
 
 @media (min-width: 992px)
-.container {
-		.form-control {
+.form-control {
 		  display: block;
 		  width: 100%;
 		  height: 34px;
@@ -2601,7 +2600,7 @@ output {
 			   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 				  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 		}
-}		
+	
 .form-control:focus {
   border-color: #66afe9;
   outline: 0;
