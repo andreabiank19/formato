@@ -2562,13 +2562,13 @@ output {
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-@media (max-width: 760px){
+@media (max-width: 800px){
 	.form-control {
 	  display: block;
 	  width: 100%;
 	  height: 50px;
 	  padding: 6px 10px;
-		height: 44px;
+		font-size: 40px;
 	  line-height: 1.42857143;
 	  color: #555;
 	  background-color: #fff;
@@ -2582,13 +2582,13 @@ output {
 			  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 	}
 }
-@media (min-width:760px) {
+@media (min-width:800px) {
 .form-control {
 		  display: block;
 		  width: 100%;
 		  height: 34px;
 		  padding: 6px 10px;
-		  height: 14px;
+		 
 		  line-height: 1.42857143;
 		  color: #555;
 		  background-color: #fff;
