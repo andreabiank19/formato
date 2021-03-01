@@ -2562,7 +2562,7 @@ output {
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-@media (max-width: 800px){
+@media (max-width: 400px) {
 	.form-control {
 	  display: block;
 	  width: 100%;
@@ -2582,7 +2582,7 @@ output {
 			  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 	}
 }
-@media (min-width:800px) {
+@media (min-width:400px) {
 .form-control {
 		  display: block;
 		  width: 100%;
