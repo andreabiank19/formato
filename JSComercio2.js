@@ -214,19 +214,23 @@ function calcular_ventas_prod_Total() {
     var declarado = convNro(document.getElementById("declarado").value);
     var real = ventas_x_prod_Total;
 	
+	 console.log("declarado:"+declarado);
+	 console.log("real:"+real);
 	 
 	var informalidad=0;
     if (real > 0) {
           informalidad = Number(1 - declarado / real)  ;         
     }  
+	 console.log("informalidad:"+informalidad);
 
     
 	if (informalidad > 0.95) {
        var real = declarado/0.05  ;
 	}
 	
+  	  document.getElementById("egp_ventas").innerHTML = Number(real).toFixed();
 	  document.getElementById("egp_ventas").value = Number(real).toFixed();
-   
+ 
 	
 }
 function calcular_util_bruta(idx) {
