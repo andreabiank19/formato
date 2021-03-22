@@ -225,13 +225,8 @@ function calcular_ventas_prod_Total() {
        var real = declarado/0.05  ;
 	}
 	
-	var proporcion_cv=convNro(document.getElementById("egp_costoven").value)/ document.getElementById("ventas_x_prod_Total").value ;
-   document.getElementById("egp_costoven").innerHTML = Number(Number(real*proporcion_cv).toFixed()).toLocaleString('en');
-
-    document.getElementById("egp_costoven").value = Number(real*proporcion_cv).toFixed();
 	
-    document.getElementById("egp_ventas").innerHTML = Number(real).toFixed();
-    document.getElementById("egp_ventas").value = Number(real).toFixed();
+   
 	
 }
 function calcular_util_bruta(idx) {
@@ -289,6 +284,23 @@ function calcular_Margen_Utilidad_Bruta() {
         margen_utilidad_bruta += pcompra * unidades_vendidas;
     }
     var Ventas_Total = convNro(document.getElementById("Ventas_Total").value);
+	
+	var declarado = convNro(document.getElementById("declarado").value);
+
+	
+	 
+	var informalidad=0;
+    if (Ventas_Total > 0) {
+          informalidad = Number(1 - declarado / Ventas_Total)  ;         
+    }  
+
+    
+	if (informalidad > 0.95) {
+         Ventas_Total = declarado/0.05  ;
+	}
+	
+	
+	
     if (Ventas_Total != 0) {
         margen_utilidad_bruta = (1 - (convNro(margen_utilidad_bruta) / Ventas_Total)) * 100;
         document.getElementById("margen_bruto").innerHTML = Number(margen_utilidad_bruta).toFixed() + "%";
