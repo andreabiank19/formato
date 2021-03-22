@@ -225,7 +225,7 @@ function calcular_ventas_prod_Total() {
        var real = declarado/0.05  ;
 	}
 	
-	
+	  document.getElementById("egp_ventas").value = Number(real).toFixed();
    
 	
 }
