@@ -310,6 +310,7 @@ function calcular_Margen_Utilidad_Bruta() {
         document.getElementById("margen_bruto").innerHTML = Number(margen_utilidad_bruta).toFixed() + "%";
         document.getElementById("margen_bruto").value = Number(margen_utilidad_bruta).toFixed();
     }
+	console.log("Ventas_Total:"+Ventas_Total)
     var margen_bruto_referencial = convNro(document.getElementById("margen_bruto_referencial").value);
     var egp_costoven = 0;
     if (margen_utilidad_bruta > margen_bruto_referencial) {
