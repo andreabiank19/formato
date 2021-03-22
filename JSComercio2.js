@@ -228,9 +228,10 @@ function calcular_ventas_prod_Total() {
        var real = declarado/0.05  ;
 	}
 	
-  	  document.getElementById("egp_ventas").innerHTML = Number(real).toFixed();
+  	  document.getElementById("egp_ventas").innerHTML = Number(Number(real).toFixed()).toLocaleString('en');
 	  document.getElementById("egp_ventas").value = Number(real).toFixed();
- 
+   	  document.getElementById("Ventas_Total").innerHTML = Number(Number(real).toFixed()).toLocaleString('en');
+
 	
 }
 function calcular_util_bruta(idx) {
