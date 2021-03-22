@@ -217,12 +217,12 @@ function calcular_ventas_prod_Total() {
 	 
 	var informalidad=0;
     if (real > 0) {
-          informalidad = Number((1 - declarado / real) * 100).toFixed();         
+          informalidad = Number(1 - declarado / real)  ;         
     }  
 
     
-	if (Number(document.getElementById("informalidad").value) > 0.95) {
-       var real =  (1 - declarado / 0.95)  ;
+	if (informalidad > 0.95) {
+       var real = declarado/0.05  ;
 	}
 	
 	var proporcion_cv=convNro(document.getElementById("egp_costoven").value)/ document.getElementById("ventas_x_prod_Total").value ;
@@ -230,8 +230,8 @@ function calcular_ventas_prod_Total() {
 
     document.getElementById("egp_costoven").value = Number(real*proporcion_cv).toFixed();
 	
-    document.getElementById("egp_ventas").innerHTML = real;
-    document.getElementById("egp_ventas").value = real;
+    document.getElementById("egp_ventas").innerHTML = Number(real).toFixed();
+    document.getElementById("egp_ventas").value = Number(real).toFixed();
 	
 }
 function calcular_util_bruta(idx) {
