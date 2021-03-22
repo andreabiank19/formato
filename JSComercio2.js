@@ -232,7 +232,7 @@ function calcular_ventas_prod_Total() {
 	
   	  document.getElementById("egp_ventas").innerHTML = Number(Number(real).toFixed()).toLocaleString('en');
 	  document.getElementById("egp_ventas").value = Number(real).toFixed();
-   	  document.getElementById("Ventas_Total").innerHTML = Number(Number(real).toFixed()).toLocaleString('en');
+   //	  document.getElementById("Ventas_Total").innerHTML = Number(Number(real).toFixed()).toLocaleString('en');
       
 	
 }
