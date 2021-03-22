@@ -219,19 +219,21 @@ function calcular_ventas_prod_Total() {
 	 
 	var informalidad=0;
     if (real > 0) {
-          informalidad = Number(1 - declarado / real)  ;         
+          informalidad = Number(1 - declarado / real)  ;       
+         	  
     }  
 	 console.log("informalidad:"+informalidad);
 
     
 	if (informalidad > 0.95) {
        var real = declarado/0.05  ;
+	    document.getElementById("informalidad").innerHTML =   "95%";	
 	}
 	
   	  document.getElementById("egp_ventas").innerHTML = Number(Number(real).toFixed()).toLocaleString('en');
 	  document.getElementById("egp_ventas").value = Number(real).toFixed();
    	  document.getElementById("Ventas_Total").innerHTML = Number(Number(real).toFixed()).toLocaleString('en');
-
+      
 	
 }
 function calcular_util_bruta(idx) {
